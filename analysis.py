@@ -82,6 +82,26 @@ def main():
                 "mcnemar": {"b": b, "c": c, "chi2": chi2, "p": p},
                 "acc_diff_ci": dict(zip(("diff","lo","hi"), boot_ci(diffs))),
             }
+
+    # ---- memorization comparison vs fp16 (paired reconstruction score per passage) ----
+    def mem_score_map(prec):
+        return {r["item_id"]: r.get("score", 0.0) for r in by[("mem", prec)]}
+    if "fp16" in precisions and by[("mem", "fp16")]:
+        base = mem_score_map("fp16")
+        out.setdefault("comparisons", {})
+        for prec in precisions:
+            if prec == "fp16": continue
+            other = mem_score_map(prec)
+            keys = sorted(set(base) & set(other))
+            # paired reconstruction-score diff (int_prec - fp16), memorized items only
+            mem_keys = [k for k in keys if k.startswith("mem_")]
+            diffs = [other[k] - base[k] for k in mem_keys]
+            # GAP difference: (memGAP at prec) - (memGAP at fp16), via bootstrap over items
+            out["comparisons"][f"mem_{prec}_vs_fp16"] = {
+                "mem_recon_score_diff_ci": dict(zip(("diff","lo","hi"), boot_ci(diffs))),
+                "n_memorized_items": len(mem_keys),
+                "note": "diff = mean(recon_score[prec] - recon_score[fp16]) over memorized passages; <0 means precision reduced reconstruction",
+            }
     print(json.dumps(out, indent=2))
 
 if __name__ == "__main__":

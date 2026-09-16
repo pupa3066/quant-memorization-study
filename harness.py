@@ -146,6 +146,18 @@ def run(model_paths: dict, mem_items, qa_items, out="runs.jsonl"):
     return n
 
 # ---------- tiny built-in probe sets (placeholder; replace with real curated sets) ----------
+def load_mem_corpus(path="data/mem_corpus.json"):
+    """Load memorized + control passages from the JSON corpus into MemItems."""
+    import json as _j
+    with open(path) as fh:
+        d = _j.load(fh)
+    items = []
+    for i, t in enumerate(d.get("memorized", [])):
+        items.append(MemItem(f"mem_{i:03d}", t, True))
+    for i, t in enumerate(d.get("control", [])):
+        items.append(MemItem(f"ctrl_{i:03d}", t, False))
+    return items
+
 def load_popqa(n_per_bin=50, seed=0):
     """Fetch PopQA via HF datasets-server, bin by subject popularity (s_pop = Wikipedia pageviews).
     Returns QAItems: bottom-quantile s_pop -> 'low' (long-tail), top-quantile -> 'high'.
@@ -221,9 +233,15 @@ if __name__ == "__main__":
     ap.add_argument("--run", action="store_true", help="execute (needs mlx-lm + models)")
     ap.add_argument("--fp16", default=None); ap.add_argument("--int8", default=None); ap.add_argument("--int4", default=None)
     ap.add_argument("--popqa", type=int, default=0, help="use N PopQA items PER popularity bin (real long-tail facts)")
+    ap.add_argument("--mem-corpus", default=None, help="path to memorization corpus JSON (scaled mem probe)")
     ap.add_argument("--out", default="runs.jsonl")
     a = ap.parse_args()
     mem, qa = default_sets()
+    if a.mem_corpus:
+        mc = load_mem_corpus(a.mem_corpus)
+        if mc:
+            mem = mc
+            print(f"[mem-corpus] loaded {len(mem)} passages", file=sys.stderr)
     if a.popqa:
         pq = load_popqa(n_per_bin=a.popqa)
         if pq:
