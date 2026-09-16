@@ -1,0 +1,14 @@
+{
+  "data_source": "runs_mem_gemma2b.jsonl",
+  "metric": "AUC(memorized vs control reconstruction score)",
+  "interpretation": "0.5 = memorization undetectable; higher = more detectable",
+  "per_precision": {
+    "int4": {
+      "auc": 0.575,
+      "n_memorized": 20,
+      "n_control": 20,
+      "mean_pos": 0.045,
+      "mean_neg": 0.0
+    }
+  }
+}
