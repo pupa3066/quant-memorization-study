@@ -1,0 +1,108 @@
+{"item_id": "mem_dickens", "probe": "mem", "precision": "int4", "correct": true, "score": 0.4286, "detail": "recon=3/7 (0.43) ex:'was'!'\u00edcio'|'the'!'a'|'best'!'first'"}
+{"item_id": "mem_melville", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'me'!'\u00edcio'|'I'!'a'|'Some'!'\\n'"}
+{"item_id": "mem_austen", "probe": "mem", "precision": "int4", "correct": true, "score": 0.5, "detail": "recon=3/6 (0.50) ex:'is'!'\u00edcio'|'a'='a'|'truth'!'common'"}
+{"item_id": "mem_orwell", "probe": "mem", "precision": "int4", "correct": true, "score": 0.25, "detail": "recon=1/4 (0.25) ex:'was'!'\u00edcio'|'a'='a'|'bright'!'time'"}
+{"item_id": "mem_tolkien", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'a'!'\u00edcio'|'hole'!'recent'|'lived'!'are'"}
+{"item_id": "ctrl_synth_1", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'z'!'\u00edcio'|'ub'!'eb'|'rob'!'rog'"}
+{"item_id": "ctrl_synth_2", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'pur'!'\\x80'|'st'!'dress'|'negoti'!'is'"}
+{"item_id": "ctrl_synth_3", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!'\u00edcio'|'invisible'!'years'|'wal'!'lines'"}
+{"item_id": "popqa_low_2712125", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='photographer' gen='Actor\\n\\n\\nQ: What is the main th'"}
+{"item_id": "popqa_low_5431559", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Lawyer\\n\\nPeter Murnoy is a lawy'"}
+{"item_id": "popqa_low_2171332", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='PhD student\\n\\nAnnie Beustes is '"}
+{"item_id": "popqa_low_5417853", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nPer Risvik is a Norwegi'"}
+{"item_id": "popqa_low_1369273", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nA: Actor\\nA: Actor\\nA:'"}
+{"item_id": "popqa_low_2901881", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nA: Actor\\n\\nThis response'"}
+{"item_id": "popqa_low_2562576", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nPaul Caillaud is a Fren'"}
+{"item_id": "popqa_low_4707538", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='journalist' gen='A biologist\\n\\nJohn D. Maurice i'"}
+{"item_id": "popqa_low_1693978", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Chemist\\n\\n\\nA: Chemist\\n\\n\\nQ: In t'"}
+{"item_id": "popqa_low_5394014", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nA: Actor\\n\\n\\nQ: What is t'"}
+{"item_id": "popqa_low_3901091", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='novelist' gen='Professional football player\\n\\n'"}
+{"item_id": "popqa_low_5331265", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='A historian\\n\\nA: Historian\\n\\nQ: '"}
+{"item_id": "popqa_low_873819", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Artist\\n\\nThomas Challis is a pr'"}
+{"item_id": "popqa_low_5436371", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Historian\\n\\nA: Historian\\n\\nThis '"}
+{"item_id": "popqa_low_3930846", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='politician' gen='A politician\\n\\nDomingo Eyzaguir'"}
+{"item_id": "popqa_low_4711830", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Professional footballer\\n\\nJohn '"}
+{"item_id": "popqa_low_4018853", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Lawyer\\n\\n\\nA: Lawyer\\nB: Doctor\\nC'"}
+{"item_id": "popqa_low_3869212", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nDavid M. Westcott is an'"}
+{"item_id": "popqa_low_610662", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='astronomer' gen='Actor\\n\\nA: Actor\\n\\n\\nQ: In the do'"}
+{"item_id": "popqa_low_6175762", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nA: Actor\\nA: Actor\\nA:'"}
+{"item_id": "popqa_low_2523400", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='diplomat' gen='He is a professional footballe'"}
+{"item_id": "popqa_low_3689415", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Lawyer\\n\\n\\nA: Lawyer\\nB: Doctor\\nC'"}
+{"item_id": "popqa_low_4346605", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='A lawyer\\n\\n\\nA: Lawyer\\nB: Doctor'"}
+{"item_id": "popqa_low_1542205", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='composer' gen='Actor\\n\\nA: Actor\\nA: Actor\\nA:'"}
+{"item_id": "popqa_low_5978662", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='A historian\\n\\nThomas Gifford is'"}
+{"item_id": "popqa_low_262900", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='priest' gen='Lawyer\\n\\nChristopher Butson is '"}
+{"item_id": "popqa_low_283289", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='screenwriter' gen='Actor\\n\\nA: Actor\\nA: Actor\\nA:'"}
+{"item_id": "popqa_low_1412527", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='politician' gen='A politician\\n\\n\\nA: A politician'"}
+{"item_id": "popqa_low_3553522", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='journalist' gen='Actor\\n\\nA: Actor\\nB: Lawyer\\nC:'"}
+{"item_id": "popqa_low_3465542", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='graphic designer' gen='Psychiatrist\\n\\n\\nA: Psychiatrist'"}
+{"item_id": "popqa_low_1557995", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='The text does not provide spec'"}
+{"item_id": "popqa_low_3970041", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='A psychologist\\n\\nA: Psychologis'"}
+{"item_id": "popqa_low_819155", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nA: Actor\\n\\n### Ask: Labe'"}
+{"item_id": "popqa_low_4382392", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Art historian\\n\\nA: Art historia'"}
+{"item_id": "popqa_low_5032330", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='rabbi' gen='A physicist\\n\\n\\nQ: What is the m'"}
+{"item_id": "popqa_low_609565", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Professional footballer\\n\\n\\nA: P'"}
+{"item_id": "popqa_low_896602", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='chef' gen='Professional poker player\\n\\nMic'"}
+{"item_id": "popqa_low_6539068", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actor\\n\\nA: Actor\\n\\nA: Ole Krarup'"}
+{"item_id": "popqa_low_4057234", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='farmer' gen='Historian\\n\\nErnst Timme is a hi'"}
+{"item_id": "popqa_low_5586772", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='composer' gen='Actor\\n\\n\\nA: Actor\\nB: Teacher\\nC'"}
+{"item_id": "popqa_low_5120341", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='dentist' gen='Actor\\n\\nMatthew McKay is a prof'"}
+{"item_id": "popqa_low_3885333", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='journalist' gen='Lawyer\\n\\nDebra Weeks is a lawye'"}
+{"item_id": "popqa_low_2827342", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='troubadour' gen='A lawyer\\n\\nA: Lawyer\\n\\nA: Lawyer'"}
+{"item_id": "popqa_low_5604342", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Lawyer\\n\\nRobert Lewis is a lawy'"}
+{"item_id": "popqa_low_6406481", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Actress\\n\\nA: Actress\\n\\nQ: What i'"}
+{"item_id": "popqa_low_843797", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='photographer' gen='Actor\\n\\nA: Actor\\nA: Entertainer'"}
+{"item_id": "popqa_low_4626587", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='politician' gen='Lawyer\\n\\nJames M. Geraghty is a'"}
+{"item_id": "popqa_low_4161947", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Historian\\n\\nFrederick Dundas is'"}
+{"item_id": "popqa_low_3073609", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='philosopher' gen='Professional football player\\n\\n'"}
+{"item_id": "popqa_low_2492953", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='seiy\u016b' gen='A professional singer\\n\\n\\nA: Mam'"}
+{"item_id": "popqa_high_2303335", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='financier' gen='A businessman and philanthropi'"}
+{"item_id": "popqa_high_4033957", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Lawyer\\n\\n\\nQ: What is the main s'"}
+{"item_id": "popqa_high_5367070", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Actor\\n\\nRichard Sandrak is an a'"}
+{"item_id": "popqa_high_3995369", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Economist\\n\\nEdward F. Cox is an'"}
+{"item_id": "popqa_high_1976296", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='poet' gen='Professional boxer\\n\\n\\nA: Profes'"}
+{"item_id": "popqa_high_2675510", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='composer' gen='He is a software engineer.\\n\\n\\nA'"}
+{"item_id": "popqa_high_3727391", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='Lawyer\\n\\nA: Lawyer\\nB: Physician'"}
+{"item_id": "popqa_high_969340", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='actor' gen='A lawyer\\n\\n\\nA: Lawyer\\nB: Doctor'"}
+{"item_id": "popqa_high_6339290", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='politician' gen='A judge\\n\\nA: Judge\\nB: Lawyer\\nC:'"}
+{"item_id": "popqa_high_4381377", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='composer' gen='Composer and conductor\\n\\n\\nQ: Wh'"}
+{"item_id": "popqa_high_6545655", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='politician' gen='He is a politician.\\n\\n\\nA: Polit'"}
+{"item_id": "popqa_high_99158", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='diplomat' gen='British politician\\n\\n\\nA: Britis'"}
+{"item_id": "popqa_high_4762905", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='journalist' gen='Actor\\n\\nA: Actor\\n\\n\\nQ: What is t'"}
+{"item_id": "popqa_high_3061785", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='actor' gen='Professional footballer\\n\\nAlex '"}
+{"item_id": "popqa_high_3310098", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='film director' gen='He is a professional cricketer'"}
+{"item_id": "popqa_high_2873463", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='actor' gen='The text does not provide spec'"}
+{"item_id": "popqa_high_1371300", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='record producer' gen='Software developer\\n\\nA: Softwar'"}
+{"item_id": "popqa_high_71982", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Professional model and actress'"}
+{"item_id": "popqa_high_3098902", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Actor\\n\\nA: Actor\\n\\n\\nQ: What is t'"}
+{"item_id": "popqa_high_2348074", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Actor\\n\\nMalcolm David Kelley is'"}
+{"item_id": "popqa_high_2059763", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Actress\\n\\nA: Actress\\n\\nQ: What i'"}
+{"item_id": "popqa_high_6430975", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='record producer' gen='Music producer\\n\\n\\nA: Music prod'"}
+{"item_id": "popqa_high_4807954", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Actor\\n\\n\\nA: Actor\\nB: Teacher\\nC'"}
+{"item_id": "popqa_high_1440910", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='lyricist' gen='Singer\\n\\nA: Singer\\nA: Actress\\nA'"}
+{"item_id": "popqa_high_1706404", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='composer' gen='Pianist\\n\\nA: Pianist\\n\\nA: Pian'"}
+{"item_id": "popqa_high_2604063", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='film director' gen='Lawyer\\n\\nA: Lawyer\\nB: Doctor\\n\\n\\n'"}
+{"item_id": "popqa_high_2393310", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='composer' gen='Professional baseball player\\n\\n'"}
+{"item_id": "popqa_high_1614694", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='singer-songwriter' gen='Singer\\n\\nA: Singer\\nA: Musician\\n'"}
+{"item_id": "popqa_high_1541610", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Comedian and actress\\n\\nQ: What '"}
+{"item_id": "popqa_high_3025283", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='actor' gen='South Korean singer and member'"}
+{"item_id": "popqa_high_2360504", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='guitarist' gen='Musician\\n\\nRobby Krieger is bes'"}
+{"item_id": "popqa_high_5930534", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='composer' gen='Canadian singer-songwriter\\n\\nA:'"}
+{"item_id": "popqa_high_5578702", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='actor' gen='He is a lawyer.\\n\\n\\nA: Lawyer\\nB:'"}
+{"item_id": "popqa_high_1208074", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='songwriter' gen='Musician\\n\\nA: Musician\\n\\n\\nQ: Wha'"}
+{"item_id": "popqa_high_276787", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='talent manager' gen='Music executive\\n\\nA: Music exec'"}
+{"item_id": "popqa_high_2616411", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='politician' gen='Politician\\n\\n\\nA: Politician\\nB: '"}
+{"item_id": "popqa_high_4355272", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='composer' gen='Musician and composer\\n\\nA: Musi'"}
+{"item_id": "popqa_high_3078887", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Professional wrestler and acto'"}
+{"item_id": "popqa_high_5571000", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='sailor' gen='A navigator and explorer\\n\\n\\nA: '"}
+{"item_id": "popqa_high_54966", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='physician' gen='Taxonomist\\n\\nCarl Linnaeus was '"}
+{"item_id": "popqa_high_3042619", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='poet' gen='Poet\\n\\n\\nA: Poet\\nB: Philosopher\\n'"}
+{"item_id": "popqa_high_1467376", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen='Actress\\n\\nA: Actress\\n\\n\\nQ: What '"}
+{"item_id": "popqa_high_6416076", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='missionary' gen='He is a software engineer.\\n\\n\\nA'"}
+{"item_id": "popqa_high_1056532", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='record producer' gen='Content creator and musician\\n\\n'"}
+{"item_id": "popqa_high_2918829", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='disc jockey' gen='Actress\\n\\nRuby Rose is primaril'"}
+{"item_id": "popqa_high_1085496", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='playwright' gen='A writer and poet.\\n\\n\\nA: A writ'"}
+{"item_id": "popqa_high_6493078", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='film producer' gen='Actor\\n\\nAmitabh Bachchan is pri'"}
+{"item_id": "popqa_high_2942698", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='film producer' gen='Actor and filmmaker\\n\\nA: Actor '"}
+{"item_id": "popqa_high_2155451", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='actor' gen='Singer and dancer\\n\\nMichael Jac'"}
+{"item_id": "popqa_high_809091", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='record producer' gen='Music artist and entrepreneur\\n'"}

@@ -1,0 +1,17 @@
+{
+  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_mem_phi35.jsonl",
+  "n_rows": 48,
+  "per_precision": {
+    "int4": {
+      "mem_recon_frac_memorized": 0.0875,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0875,
+      "mem_any_hit_memorized": 0.2,
+      "qa_accuracy": 0.75,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.6667,
+      "n_mem": 40,
+      "n_qa": 8
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{"item_id": "mem_000", "probe": "mem", "precision": "int4", "correct": true, "score": 0.4286, "detail": "recon=3/7 (0.43) ex:'was'!'\u00edcio'|'the'!'a'|'best'!'first'"}
+{"item_id": "mem_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'me'!'\u00edcio'|'I'!'a'|'Some'!'\\n'"}
+{"item_id": "mem_002", "probe": "mem", "precision": "int4", "correct": true, "score": 0.5, "detail": "recon=3/6 (0.50) ex:'is'!'\u00edcio'|'a'='a'|'truth'!'common'"}
+{"item_id": "mem_003", "probe": "mem", "precision": "int4", "correct": true, "score": 0.25, "detail": "recon=1/4 (0.25) ex:'was'!'\u00edcio'|'a'='a'|'bright'!'time'"}
+{"item_id": "mem_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/7 (0.00) ex:'a'!'\u00edcio'|'hole'!'recent'|'lived'!'are'"}
+{"item_id": "mem_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'families'!'\\x80'|'all'!'the'|'al'!'around'"}
+{"item_id": "mem_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'that'!'\u00edcio'|'is'!'said'|'gold'!'left'"}
+{"item_id": "mem_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'roads'!'\\x80'|'sorry'!'I'|'could'!'was'"}
+{"item_id": "mem_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'be'!'\u00edcio'|','!'honest'|'Whether'!'\\n'"}
+{"item_id": "mem_009", "probe": "mem", "precision": "int4", "correct": true, "score": 0.5714, "detail": "recon=4/7 (0.57) ex:'ends'!'\u00edcio'|','=','|'Rom'!'\\n'"}
+{"item_id": "mem_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'is'!'\u00edcio'|'winter'!'time'|'of'!'sh'"}
+{"item_id": "mem_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'I'!'\\x80'|'shall'!\"'\"|'turn'!'ever'"}
+{"item_id": "mem_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'sky'!'\u00edcio'|'port'!'city'|'television'!'a'"}
+{"item_id": "mem_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'years'!'\u00edcio'|'faced'!'was'|'firing'!'prospect'"}
+{"item_id": "mem_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'was'!'\u00edcio'|'burn'!'meet'|'things'!'the'"}
+{"item_id": "mem_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'ips'!'\u00edcio'|'every'!'a'|'wish'!'name'"}
+{"item_id": "mem_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'died'!'\u00edcio'|'today'!'in'|'Or'!'\\n'"}
+{"item_id": "mem_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'don'!'\u00edcio'|'about'!'what'|'without'!'.'"}
+{"item_id": "mem_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'Nell'!'\u00edcio'|','!'B'|'aw'!'acht'"}
+{"item_id": "mem_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'upon'!'\\x80'|'it'!','|'mo'!'town'"}
+{"item_id": "ctrl_000", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/7 (0.00) ex:'z'!'\u00edcio'|'ub'!'eb'|'cal'!'is'"}
+{"item_id": "ctrl_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'pur'!'\\x80'|'st'!'dress'|'negoti'!'is'"}
+{"item_id": "ctrl_002", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!'\u00edcio'|'invisible'!'years'|'wal'!'lines'"}
+{"item_id": "ctrl_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'cr'!'\u00edcio'|'therm'!'up'|'whisper'!'is'"}
+{"item_id": "ctrl_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'vel'!'\u00edcio'|'account'!'-'|'sevent'!'numbers'"}
+{"item_id": "ctrl_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'recursive'!'Day'|'um'!'function'|'contradict'!'times'"}
+{"item_id": "ctrl_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'nerv'!'\u00edcio'|'es'!'system'|'apolog'!'system'"}
+{"item_id": "ctrl_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'ven'!'\u00edcio'|'mel'!'years'|'ap'!'anz'"}
+{"item_id": "ctrl_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'pun'!'\u00edcio'|'lower'!'a'|'negoti'!','"}
+{"item_id": "ctrl_009", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'susp'!'\u00edcio'|'te'!'file'|'draft'!','"}
+{"item_id": "ctrl_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'iet'!'\u00edcio'|'rect'!'day'|'opinions'!'swe'"}
+{"item_id": "ctrl_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'calcul'!','|'deb'!','|'lu'!'machine'"}
+{"item_id": "ctrl_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/7 (0.00) ex:'forget'!'\u00edcio'|'ch'!'ness'|'sub'!','"}
+{"item_id": "ctrl_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'left'!'\\x80'|'s'!'arm'|'union'!'is'"}
+{"item_id": "ctrl_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'diplom'!'\u00edcio'|'ine'!'loy'|'rec'!'is'"}
+{"item_id": "ctrl_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'ins'!'\u00edcio'|'bar'!','|'coal'!'s'"}
+{"item_id": "ctrl_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/7 (0.00) ex:'ir'!'\u00edcio'|'sar'!','|'l'!'statements'"}
+{"item_id": "ctrl_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'bash'!'\u00edcio'|'spread'!','|'el'!','"}
+{"item_id": "ctrl_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'over'!'\u00edcio'|'qual'!'view'|'do'!'candidate'"}
+{"item_id": "ctrl_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'amb'!'\u00edcio'|'k'!'relationship'|'ch'!','"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Paris' gen='Paris\\n\\n\\nQ: What is the capital'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen='William Shakespeare\\n\\n\\nQ: What '"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen='Thimphu\\n\\n\\nA: Thimphu\\n\\n\\n'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1947' gen='1947\\n\\n\\n## Answer:\\n1947'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Perey' gen='Marguerite Pereira\\n\\nA: Marguer'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Astana' gen='Nur-Sultan\\n\\nA: Nur-Sultan is t'"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1648' gen='1648\\n\\n\\nA: 1648\\n'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='74' gen='74\\n\\n\\nQ: What is the atomic num'"}
