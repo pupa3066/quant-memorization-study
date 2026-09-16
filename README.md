@@ -31,15 +31,17 @@ python3 -m venv .venv
 ```
 
 ## Current results
-**Pilot (N=8, `runs.jsonl`):** suggested int4 hurt factuality — but this was small-sample noise.
-**Scaled (N=100 real PopQA facts, `runs_popqa.jsonl`):**
-- Factuality: fp16 **0.29** vs int4 **0.28**; McNemar p=**1.0**, diff CI **[-0.10, +0.08]** →
-  **INT4 statistically indistinguishable from FP16** on aggregate factual accuracy (a NULL result).
-  Scaling N corrected the pilot's false positive.
-- Memorization (still N=8, underpowered): fp16 GAP **+0.10** → int4 **0.00** — suggestive that
-  int4 erases weak memorization; needs a scaled memorization corpus + bigger model to confirm.
+**Multi-model (6 models: Qwen2.5-0.5B/1.5B/3B, Llama-3.2-1B, Phi-3.5-mini, Gemma-2-2b) — see
+`RESULTS_multimodel.md`:**
+- **Factuality: INT4 ≈ FP16, a replicated null.** All 3 models with paired fp16/int4 data show no
+  significant change in factual accuracy (McNemar p=1.0, 1.0, 0.38).
+- **Memorization: dominated by model scale, not precision.** The single-0.5B-model "int4 erases
+  memorization" story did NOT replicate across models (2/3 decline with int4, llama1b increases
+  0.065→0.074; larger int4 models memorize more than small fp16 models). Honest, mixed result.
+- **Methodology:** an N=8 pilot false positive (factuality) and a single-model memorization artifact
+  were both corrected by scaling to 100 facts and 6 models. Measure, don't assert.
 
-Run with `--popqa 50` to reproduce the scaled QA result. See DEVLOG.md §5b.
+Reproduce: `overnight_sweep.sh` (RAM/disk-safe multi-model sweep) → `combine_results.py`. See DEVLOG.md.
 
 ## Honesty policy
 No fabricated numbers. No backend → prints plan and exits. Empty data → zeros, not invented results.
