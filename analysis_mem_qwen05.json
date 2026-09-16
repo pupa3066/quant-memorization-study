@@ -1,0 +1,85 @@
+{
+  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_mem_qwen05.jsonl",
+  "n_rows": 144,
+  "per_precision": {
+    "fp16": {
+      "mem_recon_frac_memorized": 0.025,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.025,
+      "mem_any_hit_memorized": 0.1,
+      "qa_accuracy": 0.75,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.6667,
+      "n_mem": 40,
+      "n_qa": 8
+    },
+    "int4": {
+      "mem_recon_frac_memorized": 0.0,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0,
+      "mem_any_hit_memorized": 0.0,
+      "qa_accuracy": 0.5,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.3333,
+      "n_mem": 40,
+      "n_qa": 8
+    },
+    "int8": {
+      "mem_recon_frac_memorized": 0.0167,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0167,
+      "mem_any_hit_memorized": 0.05,
+      "qa_accuracy": 0.875,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.8333,
+      "n_mem": 40,
+      "n_qa": 8
+    }
+  },
+  "comparisons": {
+    "qa_int4_vs_fp16": {
+      "mcnemar": {
+        "b": 2,
+        "c": 0,
+        "chi2": 0.5,
+        "p": 0.4795
+      },
+      "acc_diff_ci": {
+        "diff": -0.25,
+        "lo": -0.625,
+        "hi": 0.0
+      }
+    },
+    "qa_int8_vs_fp16": {
+      "mcnemar": {
+        "b": 0,
+        "c": 1,
+        "chi2": 0.0,
+        "p": 1.0
+      },
+      "acc_diff_ci": {
+        "diff": 0.125,
+        "lo": 0.0,
+        "hi": 0.375
+      }
+    },
+    "mem_int4_vs_fp16": {
+      "mem_recon_score_diff_ci": {
+        "diff": -0.025,
+        "lo": -0.0667,
+        "hi": 0.0
+      },
+      "n_memorized_items": 20,
+      "note": "diff = mean(recon_score[prec] - recon_score[fp16]) over memorized passages; <0 means precision reduced reconstruction"
+    },
+    "mem_int8_vs_fp16": {
+      "mem_recon_score_diff_ci": {
+        "diff": -0.0083,
+        "lo": -0.025,
+        "hi": 0.0
+      },
+      "n_memorized_items": 20,
+      "note": "diff = mean(recon_score[prec] - recon_score[fp16]) over memorized passages; <0 means precision reduced reconstruction"
+    }
+  }
+}
