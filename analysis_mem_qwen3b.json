@@ -1,0 +1,17 @@
+{
+  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_mem_qwen3b.jsonl",
+  "n_rows": 48,
+  "per_precision": {
+    "int4": {
+      "mem_recon_frac_memorized": 0.105,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.105,
+      "mem_any_hit_memorized": 0.25,
+      "qa_accuracy": 0.875,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.8333,
+      "n_mem": 40,
+      "n_qa": 8
+    }
+  }
+}
