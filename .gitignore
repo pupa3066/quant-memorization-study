@@ -1,0 +1,13 @@
+# environment / caches — never commit
+.venv/
+__pycache__/
+*.pyc
+*.log
+
+# model weights / large artifacts (never commit; HF cache lives outside repo anyway)
+*.safetensors
+*.gguf
+*.npz
+models/
+
+# keep: DESIGN.md, harness.py, analysis.py, runs.jsonl, analysis.json, DEVLOG.md, README.md

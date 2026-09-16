@@ -1,0 +1,43 @@
+{
+  "data_source": "runs.jsonl",
+  "n_rows": 32,
+  "per_precision": {
+    "fp16": {
+      "mem_recon_frac_memorized": 0.1,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.1,
+      "mem_any_hit_memorized": 0.4,
+      "qa_accuracy": 0.75,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.6667,
+      "n_mem": 8,
+      "n_qa": 8
+    },
+    "int4": {
+      "mem_recon_frac_memorized": 0.0,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0,
+      "mem_any_hit_memorized": 0.0,
+      "qa_accuracy": 0.5,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.3333,
+      "n_mem": 8,
+      "n_qa": 8
+    }
+  },
+  "comparisons": {
+    "qa_int4_vs_fp16": {
+      "mcnemar": {
+        "b": 2,
+        "c": 0,
+        "chi2": 0.5,
+        "p": 0.4795
+      },
+      "acc_diff_ci": {
+        "diff": -0.25,
+        "lo": -0.625,
+        "hi": 0.0
+      }
+    }
+  }
+}

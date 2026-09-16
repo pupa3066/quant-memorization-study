@@ -1,0 +1,32 @@
+{"item_id": "mem_dickens", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.3333, "detail": "recon=2/6 (0.33) ex:' was'!\"'s\"|' the'!' a'|' best'!' first'"}
+{"item_id": "mem_melville", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' me'!' Gateway'|' Some'!' I'|' never'!','"}
+{"item_id": "mem_austen", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.1667, "detail": "recon=1/6 (0.17) ex:' is'!\"'s\"|' a'!' currently'|' truth'!' sw'"}
+{"item_id": "mem_orwell", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' was'!\"'s\"|' cold'!' and'|' clocks'!' students'"}
+{"item_id": "mem_tolkien", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' hole'!' math'|' lived'!' is'|' Not'!' He'"}
+{"item_id": "ctrl_synth_1", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'ubb'!'onal'|' fro'!' is'|' calibrated'!' is'"}
+{"item_id": "ctrl_synth_2", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!' code'|' stap'!' shirt'|' negotiated'!' is'"}
+{"item_id": "ctrl_synth_3", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!' rev'|' invisible'!'-year'|' aud'!' are'"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Paris' gen='Paris. Paris is the capital of'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen='William Shakespeare wrote Rome'"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen='Thimphu.<|endoftext|>Human: Ca'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='1947' gen='The transistor was invented in'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Perey' gen='Rutherford discovered the elem'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Astana' gen='Astana.<|endoftext|>Human: Can'"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='1648' gen='1648. The Treaty of Westphalia'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='74' gen='20.<|endoftext|>Human: Can you'"}
+{"item_id": "mem_dickens", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:' was'!'ero'|' the'!' a'|' best'!' first'"}
+{"item_id": "mem_melville", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' me'!'ero'|' Ish'!' what'|' never'!','"}
+{"item_id": "mem_austen", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:' is'!'ero'|' truth'!' good'|' single'!' good'"}
+{"item_id": "mem_orwell", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' was'!'ero'|' April'!' the'|' clocks'!' weather'"}
+{"item_id": "mem_tolkien", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' a'!'ero'|' hole'!' math'|' Not'!' He'"}
+{"item_id": "ctrl_synth_1", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'ubb'!'ang'|' fro'!' is'|' calibrated'!' is'"}
+{"item_id": "ctrl_synth_2", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!'ero'|' stap'!' cat'|' negotiated'!' is'"}
+{"item_id": "ctrl_synth_3", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!'ero'|' invisible'!'-year'|' wal'!' things'"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Paris' gen='Paris is the capital of France'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen='Romeo and Juliet was written b'"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen='The capital of Bhutan is Thimp'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1947' gen='The transistor was invented in'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Perey' gen='Francium was discovered by a t'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Astana' gen='Almaty. The capital of Kazakhs'"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='1648' gen='The Treaty of Westphalia was s'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='74' gen='90\\nTo answer concisely, the at'"}
