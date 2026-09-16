@@ -1,36 +1,45 @@
-# Cross-Validation: Quant-Memorization Study × AnimeVlog
+# AnimeVlog int4 Implementation × Quantization Study — Honest Evaluation
 
-> Ran the bootstrap cross-validation step. MEASURED data only, no hypothetical bridges.
-> Both projects use INT4 as an independent variable but measure DIFFERENT dependent variables.
+> Question asked: is AnimeVlog's int4 implementation the "ultimate solution to all quantization
+> problems," can it test more cases, and what's best for AnimeVlog? Evaluated against real files.
+> Sources: AnimeVlog/model/int4_mps.py, quantization_results.json, ablation_int4_quality.json,
+> int4_publishability_assessment.json (all MEASURED, dated 2026-08-13).
 
-## The two evidence sets (both MEASURED)
-- **AnimeVlog (int4 on SDXL/diffusion):** output FIDELITY. int4 gives 64% memory saving
-  (UNet 4897MB→1768MB) at cosine >0.997 (0.99778–0.99799). int4 preserves image-latent fidelity.
-  int4 alone judged "NOT publishable" as a standalone contribution.
-- **Quant-memorization study (int4 on LLMs, 6 models):** BEHAVIOR. int4 ≈ fp16 on factual accuracy
-  (replicated null, McNemar p=1.0/1.0/0.38); int4's effect on memorization is inconsistent and
-  dominated by model scale.
+## What the AnimeVlog int4 implementation actually is
+- **Pure-PyTorch per-group asymmetric int4 weight-only quantization for MPS** (Apple Silicon),
+  `Int4LinearMPS` with a `from_float` API. Packs 2×int4/byte + fp16 per-group scale/zero-point.
+- **Measured:** SDXL UNet 2.57B params, fp16 4897MB → int4 ~1759MB (3.8× at group_size=128);
+  cosine similarity 0.99778–0.99799 across group sizes 32–256; layer-sensitivity skip-first/last
+  raises cosine to 0.99997; NF4 was WORSE than uniform here (nf4_rmse 0.00436 vs uniform 0.00201,
+  −117%) because per-group calibration already handles the distribution.
 
-## Relationship labels
-- **SUPPORTS (capability-preservation axis):** Both independently show int4 preserves the model's
-  primary useful output — AnimeVlog on image fidelity (cosine >0.997), the study on factual accuracy
-  (null). Two different modalities (diffusion vision vs. LLM text), same conclusion: **int4 is a safe
-  compression for the intended task output.** This is real mutual support, not a stretch.
-- **NEUTRAL (memorization):** AnimeVlog measures no memorization signal (it measures latent fidelity);
-  the study's memorization result is about verbatim training-data recall. High cosine fidelity does
-  NOT imply preserved memorization, and the study's mixed memorization result does NOT contradict
-  AnimeVlog's fidelity numbers. Different dependent variables — correctly labeled NEUTRAL.
-- **REFINES (AnimeVlog's "int4 not publishable alone"):** AnimeVlog concluded int4-alone isn't a
-  publishable contribution (it's just a known compression). The study REFINES that: int4-alone is
-  indeed unremarkable for *capability*, but int4's effect on *memorization/behavior* is a genuinely
-  under-studied, measurable question — the publishable angle isn't the compression, it's what
-  behavior it does/doesn't change. Consistent with AnimeVlog's own call, and sharpens why.
+## Is it the "ultimate solution to all quantization problems"? — NO.
+Tested against evidence, including AnimeVlog's OWN assessment file:
+- Its own `int4_publishability_assessment.json` says: "NOT publishable as standalone... engineering
+  workaround, not algorithmic novelty... per-group asymmetric quantization is textbook... reproducible
+  in 20 minutes." That is the correct, honest read.
+- It solves ONE case well: diffusion UNet **weight-reconstruction fidelity** on MPS. It does NOT address:
+  - activation quantization, KV-cache quantization, or mixed-precision search;
+  - **model BEHAVIOR** (memorization, factuality) — it measures cosine of weights/outputs, a different
+    dependent variable than the study;
+  - non-MPS hardware, non-diffusion architectures beyond Linear layers (87% of this UNet).
+- Verdict: a solid, reusable **engineering tool for one modality**, not a general solution. Claiming
+  otherwise would contradict your own files and (per that assessment) "damage credibility."
 
-## Net
-No contradiction. The two projects agree on the defensible claim ("int4 preserves task capability")
-across vision and text, and are properly orthogonal on memorization. AnimeVlog's "int4 not
-publishable alone" stance stands and is refined, not overturned. No stale claim to fix.
+## Can it be used to test MORE quantization cases? — YES, as a method.
+Reusable and worth adopting into the study:
+- The **group-size ablation** + **layer-sensitivity (skip first/last)** methodology is directly
+  transferable: the study could report the same ablation axes for LLM quantization.
+- `Int4LinearMPS.from_float` could quantize LLM Linear layers to probe how group size / skipped layers
+  affect memorization & factuality (not just fidelity) — a genuinely new experiment the study lacks.
+- ACTION (future): add a group-size axis to the study's harness, reusing this ablation design.
 
-## Edge recorded in cross-links.md
-quant-memorization-study [MEASURED int4 factuality null, 6 models] SUPPORTS AnimeVlog [MEASURED int4
-cosine >0.997 fidelity] on "int4 preserves intended output"; NEUTRAL on memorization (different DV).
+## What's best for AnimeVlog (per its own evidence)
+- Keep int4 as a **supporting section (5.1)**, not the headline — the headline is Composable QLoRA +
+  zero-interference. (Matches the assessment file.)
+- Ship the int4 code as a package/util (MIT), not as a paper. Its value is engineering reuse.
+
+## Cross-validation label (recorded in cross-links.md)
+AnimeVlog int4 [MEASURED cosine >0.997 fidelity, vision] SUPPORTS quant-memorization-study
+[MEASURED int4 factuality null, text] on "int4 preserves intended task output across modalities";
+NEUTRAL on memorization (fidelity ≠ verbatim recall). Cross-modality external validity for the study.

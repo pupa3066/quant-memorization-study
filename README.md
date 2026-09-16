@@ -18,6 +18,14 @@ bridging on-device quantization with data-centric interpretability (Ravichander 
 - `DEVLOG.md` — deep engineering log: every bug, its root cause, the fix, and design rationale.
 - `runs.jsonl` / `analysis.json` — the current pilot data + computed metrics (real, labeled pilot).
 
+## External validation (cross-modality)
+Independent int4 evidence from a diffusion-model project (SDXL UNet, 2.57B params, Apple Silicon)
+corroborates the "int4 preserves the intended task output" finding on a *different modality*:
+fp16 4897MB → int4 ~1759MB (3.8× compression) at **cosine similarity 0.997–0.998** with fp16 output
+(group-size ablation gs32–gs256; measured). Vision-latent fidelity (there) and LLM factual accuracy
+(here) both survive int4 — two modalities, same conclusion. This is NEUTRAL on memorization (fidelity
+is a different dependent variable than verbatim recall). See `CROSSVALIDATION_animevlog.md`.
+
 ## Reproduce (Apple Silicon)
 ```sh
 python3 -m venv .venv
