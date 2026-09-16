@@ -1,11 +1,13 @@
 # Quantization × Memorization & Factuality
 
-Does reducing a model's numeric precision (FP16 → INT4) change **what it memorizes** and **how
-reliably it answers factual questions**? A small, honest, reproducible study bridging on-device
-quantization with data-centric interpretability (Ravichander et al., arXiv:2503.12072).
+Does reducing a model's numeric precision (FP16 → INT8 → INT4) change **what it memorizes** and **how
+reliably it answers factual questions**? A reproducible, honestly-scoped study across **6 models**,
+bridging on-device quantization with data-centric interpretability (Ravichander et al., arXiv:2503.12072).
 
-> **Status: PILOT.** The apparatus runs end-to-end on real models and shows a directionally
-> consistent effect, but N is tiny and results are NOT statistically significant. See DEVLOG.md §4.
+> **Headline (6 models):** INT4 leaves factual accuracy statistically unchanged (replicated null),
+> while memorization is driven by **model scale, not precision** — a single-model "INT4 erases
+> memorization" result did *not* replicate. A pilot false positive was caught and corrected by
+> scaling. See `RESULTS_multimodel.md`.
 
 ## Files
 - `DESIGN.md` — pre-registered design: RQs, hypotheses (H1–H3), metrics, statistics, threats.
