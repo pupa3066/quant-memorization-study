@@ -30,10 +30,16 @@ python3 -m venv .venv
 ./.venv/bin/python analysis.py runs.jsonl
 ```
 
-## Current pilot signal (N=8, p=0.48 — pilot only)
-- Memorization GAP: fp16 +0.10 → int4 0.00 (signal disappears under INT4).
-- Factuality: high-popularity facts unaffected (1.0→1.0); long-tail degrades (0.67→0.33).
-- Direction matches hypotheses; significance requires scaling N (see DEVLOG §5).
+## Current results
+**Pilot (N=8, `runs.jsonl`):** suggested int4 hurt factuality — but this was small-sample noise.
+**Scaled (N=100 real PopQA facts, `runs_popqa.jsonl`):**
+- Factuality: fp16 **0.29** vs int4 **0.28**; McNemar p=**1.0**, diff CI **[-0.10, +0.08]** →
+  **INT4 statistically indistinguishable from FP16** on aggregate factual accuracy (a NULL result).
+  Scaling N corrected the pilot's false positive.
+- Memorization (still N=8, underpowered): fp16 GAP **+0.10** → int4 **0.00** — suggestive that
+  int4 erases weak memorization; needs a scaled memorization corpus + bigger model to confirm.
+
+Run with `--popqa 50` to reproduce the scaled QA result. See DEVLOG.md §5b.
 
 ## Honesty policy
 No fabricated numbers. No backend → prints plan and exits. Empty data → zeros, not invented results.

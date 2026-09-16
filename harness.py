@@ -31,6 +31,7 @@ class QAItem:
     question: str
     answer: str
     popularity: str                # "high" | "low"
+    aliases: list = field(default_factory=list)   # acceptable answer variants (PopQA possible_answers)
 
 @dataclass
 class Result:
@@ -123,8 +124,11 @@ def mem_probe(backend, item: MemItem, top_k_frac: float = 0.25) -> Result:
 
 def qa_probe(backend: Backend, item: QAItem) -> Result:
     gen = backend.answer(item.question)
-    hit = _norm(item.answer) in _norm(gen)
-    return Result(item.item_id, "qa", "?", bool(hit), 1.0 if hit else 0.0, f"gold={item.answer!r} gen={gen[:30]!r}")
+    gnorm = _norm(gen)
+    candidates = [item.answer] + list(item.aliases or [])
+    hit = any(_norm(c) and _norm(c) in gnorm for c in candidates)
+    return Result(item.item_id, "qa", "?", bool(hit), 1.0 if hit else 0.0,
+                  f"gold={item.answer!r} gen={gen[:30]!r}")
 
 # ---------- runner ----------
 def run(model_paths: dict, mem_items, qa_items, out="runs.jsonl"):
@@ -142,6 +146,48 @@ def run(model_paths: dict, mem_items, qa_items, out="runs.jsonl"):
     return n
 
 # ---------- tiny built-in probe sets (placeholder; replace with real curated sets) ----------
+def load_popqa(n_per_bin=50, seed=0):
+    """Fetch PopQA via HF datasets-server, bin by subject popularity (s_pop = Wikipedia pageviews).
+    Returns QAItems: bottom-quantile s_pop -> 'low' (long-tail), top-quantile -> 'high'.
+    Uses possible_answers as accepted aliases. No local dataset install needed."""
+    import json as _j, urllib.request, ast, random
+    fetched = []
+    # PopQA test split ~14k rows; sample a chunk deterministically, then quantile-split.
+    CHUNK = max(400, n_per_bin * 8)
+    off = 0
+    while len(fetched) < CHUNK and off < 3000:
+        url = (f"https://datasets-server.huggingface.co/rows?dataset=akariasai%2FPopQA"
+               f"&config=default&split=test&offset={off}&length=100")
+        try:
+            d = _j.load(urllib.request.urlopen(url, timeout=30))
+        except Exception:
+            break
+        rows = d.get("rows", [])
+        if not rows:
+            break
+        for row in rows:
+            r = row["row"]
+            q, a, pop = r.get("question"), r.get("obj"), r.get("s_pop")
+            if not (q and a and isinstance(pop, (int, float))):
+                continue
+            try:
+                aliases = ast.literal_eval(r.get("possible_answers") or "[]")
+            except Exception:
+                aliases = []
+            fetched.append((int(pop), q, a, aliases, r.get("id")))
+        off += 100
+    if not fetched:
+        return []
+    fetched.sort(key=lambda x: x[0])           # by popularity ascending
+    low = fetched[:n_per_bin]                    # long-tail
+    high = fetched[-n_per_bin:]                  # popular
+    items = []
+    for pop, q, a, al, rid in low:
+        items.append(QAItem(f"popqa_low_{rid}", q, a, "low", al))
+    for pop, q, a, al, rid in high:
+        items.append(QAItem(f"popqa_high_{rid}", q, a, "high", al))
+    return items
+
 def default_sets():
     mem = [
         # MEMORIZED candidates: famous verbatim text LLMs reliably reproduce
@@ -174,9 +220,17 @@ if __name__ == "__main__":
     ap.add_argument("--dry", action="store_true", help="print the plan and exit (no backend, no cost)")
     ap.add_argument("--run", action="store_true", help="execute (needs mlx-lm + models)")
     ap.add_argument("--fp16", default=None); ap.add_argument("--int8", default=None); ap.add_argument("--int4", default=None)
+    ap.add_argument("--popqa", type=int, default=0, help="use N PopQA items PER popularity bin (real long-tail facts)")
     ap.add_argument("--out", default="runs.jsonl")
     a = ap.parse_args()
     mem, qa = default_sets()
+    if a.popqa:
+        pq = load_popqa(n_per_bin=a.popqa)
+        if pq:
+            qa = pq
+            print(f"[popqa] loaded {len(qa)} QA items ({a.popqa}/bin high+low)", file=sys.stderr)
+        else:
+            print("[popqa] fetch failed; falling back to built-in QA set", file=sys.stderr)
     if a.dry or not a.run:
         plan = {"precisions": PRECISIONS, "n_mem_items": len(mem), "n_qa_items": len(qa),
                 "probes": ["high-surprisal reconstruction", "closed-book QA"],

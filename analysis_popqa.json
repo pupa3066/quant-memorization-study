@@ -1,0 +1,43 @@
+{
+  "data_source": "runs_popqa.jsonl",
+  "n_rows": 216,
+  "per_precision": {
+    "fp16": {
+      "mem_recon_frac_memorized": 0.1,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.1,
+      "mem_any_hit_memorized": 0.4,
+      "qa_accuracy": 0.29,
+      "qa_high_pop": 0.48,
+      "qa_low_pop": 0.1,
+      "n_mem": 8,
+      "n_qa": 100
+    },
+    "int4": {
+      "mem_recon_frac_memorized": 0.0,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0,
+      "mem_any_hit_memorized": 0.0,
+      "qa_accuracy": 0.28,
+      "qa_high_pop": 0.36,
+      "qa_low_pop": 0.2,
+      "n_mem": 8,
+      "n_qa": 100
+    }
+  },
+  "comparisons": {
+    "qa_int4_vs_fp16": {
+      "mcnemar": {
+        "b": 11,
+        "c": 10,
+        "chi2": 0.0,
+        "p": 1.0
+      },
+      "acc_diff_ci": {
+        "diff": -0.01,
+        "lo": -0.1,
+        "hi": 0.08
+      }
+    }
+  }
+}

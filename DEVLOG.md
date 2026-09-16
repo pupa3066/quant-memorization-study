@@ -96,6 +96,29 @@ After fixes, real run on real models (see runs.jsonl / analysis.json):
 
 ---
 
+
+## 5b. SCALED run with real PopQA (N=100 facts) — a false positive corrected
+Wired in **PopQA** (akariasai/PopQA via HF datasets-server): real questions with subject
+Wikipedia-pageview popularity (`s_pop`) and answer aliases (`possible_answers`). Binned by
+`s_pop` quantile: bottom = long-tail 'low', top = popular 'high'. 50/bin = 100 facts.
+QA scoring now accepts any alias. Data: `runs_popqa.jsonl` / `analysis_popqa.json`.
+
+Result (N=100 QA, real):
+- Overall factuality: **fp16 0.29 vs int4 0.28**. McNemar **b=11, c=10, chi2=0.0, p=1.0**;
+  accuracy-diff CI **[-0.10, +0.08]**. → **INT4 is statistically indistinguishable from FP16
+  on aggregate factual accuracy.**
+- **This OVERTURNS the pilot's apparent 0.75->0.50 drop** — that was N=8 small-sample noise.
+  Scaling N killed a false positive. (Methodology working as intended.)
+- Popularity split: high-pop 0.48->0.36 (credible directional drop), low-pop 0.10->0.20
+  (near floor — the 0.5B model barely knows long-tail facts; likely noise, NOT a real gain).
+  H3 is NOT supported by this data; picture is inconclusive at this model size.
+- Memorization side unchanged (still N=8): fp16 GAP +0.10, int4 GAP 0.00 — suggestive only;
+  PopQA scaled the QA probe, NOT the memorization probe.
+
+Honest takeaway: the defensible finding right now is a NULL on aggregate factuality (int4 ~= fp16),
+plus a still-underpowered hint that int4 erases weak memorization. Next real step = scale the
+MEMORIZATION corpus (~200 known-memorized + controls) and use a bigger model.
+
 ## 5. Roadmap to a real result (why current design is a foundation, not the end)
 1. Scale N: 200–500 memorization passages (public-domain + post-cutoff controls) + a real
    popularity-labeled QA set (e.g. PopQA). → statistical power.
