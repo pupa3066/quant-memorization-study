@@ -1,0 +1,17 @@
+{
+  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_popqa_gemma2b.jsonl",
+  "n_rows": 108,
+  "per_precision": {
+    "int4": {
+      "mem_recon_frac_memorized": 0.1,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.1,
+      "mem_any_hit_memorized": 0.4,
+      "qa_accuracy": 0.3,
+      "qa_high_pop": 0.52,
+      "qa_low_pop": 0.08,
+      "n_mem": 8,
+      "n_qa": 100
+    }
+  }
+}

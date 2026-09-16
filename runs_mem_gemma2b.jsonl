@@ -1,0 +1,48 @@
+{"item_id": "mem_000", "probe": "mem", "precision": "int4", "correct": true, "score": 0.1667, "detail": "recon=1/6 (0.17) ex:'It'!'The'|' the'!' a'|' best'!' kind'"}
+{"item_id": "mem_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Call'!'The'|' me'!' for'|' Some'!'  '"}
+{"item_id": "mem_002", "probe": "mem", "precision": "int4", "correct": true, "score": 0.3333, "detail": "recon=2/6 (0.33) ex:'It'!'The'|' is'!\"'\"|' a'=' a'"}
+{"item_id": "mem_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'It'!'The'|' bright'!' beautiful'|' cold'!' and'"}
+{"item_id": "mem_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:' hole'!' world'|' hobbit'!' family'|' nasty'!' particularly'"}
+{"item_id": "mem_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Happy'!'The'|' families'!' to'|' all'!' happy'"}
+{"item_id": "mem_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'All'!'The'|' that'!' of'|' not'!'\\n'"}
+{"item_id": "mem_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Two'!'The'|' roads'!' years'|' and'!'\\n'"}
+{"item_id": "mem_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'To'!'The'|','!' honest'|':'!'.'"}
+{"item_id": "mem_009", "probe": "mem", "precision": "int4", "correct": true, "score": 0.4, "detail": "recon=2/5 (0.40) ex:'Friends'!'The'|','!' of'|';'!'!'"}
+{"item_id": "mem_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Now'!'The'|' is'!'s'|' York'!' ours'"}
+{"item_id": "mem_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'Whether'!'The'|' I'!' the'|' shall'!' should'"}
+{"item_id": "mem_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' sky'!' '|' port'!' city'|' television'!' a'"}
+{"item_id": "mem_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Many'!'The'|' faced'!' was'|' firing'!' prospect'"}
+{"item_id": "mem_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' burn'!' meet'|' special'!' pleasure'|' eaten'!' go'"}
+{"item_id": "mem_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Ships'!'The'|' every'!' a'|' wish'!' heart'"}
+{"item_id": "mem_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Mother'!'The'|' died'!' of'|' Or'!'\\n\\n'"}
+{"item_id": "mem_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'You'!'The'|' don'!'re'|' without'!','"}
+{"item_id": "mem_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' Nellie'!' '|' cruising'!' small'|' yaw'!' ship'"}
+{"item_id": "mem_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Once'!'The'|' upon'!' the'|' and'!','"}
+{"item_id": "ctrl_000", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' zub'!' '|' fro'!','|' calibrated'!' is'"}
+{"item_id": "ctrl_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' sta'!','|' negotiated'!','|' fern'!' supplies'"}
+{"item_id": "ctrl_002", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Seven'!'The'|' invisible'!' years'|' wal'!' threads'"}
+{"item_id": "ctrl_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' crumpled'!'  '|' whispered'!','|' algebra'!' secrets'"}
+{"item_id": "ctrl_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' velvet'!' '|' accountant'!'-'|' hypotheses'!' coffees'"}
+{"item_id": "ctrl_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' recursive'!' House'|' umbrella'!' function'|' fore'!'.'"}
+{"item_id": "ctrl_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' escal'!' system'|' apologized'!','|' mushrooms'!' investors'"}
+{"item_id": "ctrl_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Eleven'!'The'|' melancholy'!' years'|' sta'!' blues'"}
+{"item_id": "ctrl_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' punctual'!'  '|' avalanche'!' and'|' interest'!' icy'"}
+{"item_id": "ctrl_009", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' teaspoon'!' activity'|' drafted'!' of'|' bureaucratic'!'-'"}
+{"item_id": "ctrl_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Quiet'!'The'|' knitted'!' lamp'|' opinions'!' a'"}
+{"item_id": "ctrl_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' astonished'!' years'|' calculators'!' onlookers'|' lukewarm'!' new'"}
+{"item_id": "ctrl_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' forget'!' '|' chandelier'!','|' subpoena'!'\\n\\n'"}
+{"item_id": "ctrl_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' left'!' family'|' union'!' is'|' disgruntled'!' rest'"}
+{"item_id": "ctrl_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' pineapple'!' mission'|' recited'!'.'|' quarterly'!' a'"}
+{"item_id": "ctrl_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' ins'!' '|' barometer'!\"'\"|' coalition'!' sleeping'"}
+{"item_id": "ctrl_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Thirteen'!'The'|' sarcastic'!' years'|' lamp'!' and'"}
+{"item_id": "ctrl_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' bash'!' '|' spreadsheet'!','|' el'!','"}
+{"item_id": "ctrl_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' door'!' candidate'|' lectured'!'?'|' galaxy'!','"}
+{"item_id": "ctrl_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' ambivalent'!' '|' kettle'!' nature'|' punctual'!' kitchen'"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Paris' gen=' **Paris** \\n'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen=' William Shakespeare \\n'"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen=' Thimphu \\n'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1947' gen=' 1947 \\n'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Perey' gen='  Marie Curie \\n'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Astana' gen=' Astana. \\n'"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1648' gen=' 1648 \\n'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='74' gen=' 74 \\n'"}
