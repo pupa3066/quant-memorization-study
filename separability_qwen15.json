@@ -1,0 +1,22 @@
+{
+  "data_source": "runs_mem_qwen15.jsonl",
+  "metric": "AUC(memorized vs control reconstruction score)",
+  "interpretation": "0.5 = memorization undetectable; higher = more detectable",
+  "per_precision": {
+    "fp16": {
+      "auc": 0.575,
+      "n_memorized": 20,
+      "n_control": 20,
+      "mean_pos": 0.06,
+      "mean_neg": 0.0
+    },
+    "int4": {
+      "auc": 0.55,
+      "n_memorized": 20,
+      "n_control": 20,
+      "mean_pos": 0.0333,
+      "mean_neg": 0.0
+    }
+  },
+  "trend": "declines with lower precision (memorization detectability erodes)"
+}
