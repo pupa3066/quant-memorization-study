@@ -1,0 +1,52 @@
+{
+  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_mem_qwen15.jsonl",
+  "n_rows": 96,
+  "per_precision": {
+    "fp16": {
+      "mem_recon_frac_memorized": 0.06,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.06,
+      "mem_any_hit_memorized": 0.15,
+      "qa_accuracy": 0.875,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.8333,
+      "n_mem": 40,
+      "n_qa": 8
+    },
+    "int4": {
+      "mem_recon_frac_memorized": 0.0333,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0333,
+      "mem_any_hit_memorized": 0.1,
+      "qa_accuracy": 1.0,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 1.0,
+      "n_mem": 40,
+      "n_qa": 8
+    }
+  },
+  "comparisons": {
+    "qa_int4_vs_fp16": {
+      "mcnemar": {
+        "b": 0,
+        "c": 1,
+        "chi2": 0.0,
+        "p": 1.0
+      },
+      "acc_diff_ci": {
+        "diff": 0.125,
+        "lo": 0.0,
+        "hi": 0.375
+      }
+    },
+    "mem_int4_vs_fp16": {
+      "mem_recon_score_diff_ci": {
+        "diff": -0.0267,
+        "lo": -0.07,
+        "hi": 0.0
+      },
+      "n_memorized_items": 20,
+      "note": "diff = mean(recon_score[prec] - recon_score[fp16]) over memorized passages; <0 means precision reduced reconstruction"
+    }
+  }
+}
