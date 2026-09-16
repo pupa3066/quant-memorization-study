@@ -1,0 +1,96 @@
+{"item_id": "mem_000", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.4286, "detail": "recon=3/7 (0.43) ex:'It'!'Tags'|' was'!\"'s\"|' the'!' a'"}
+{"item_id": "mem_001", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Call'!'Tags'|' Ish'!' anytime'|' Some'!' I'"}
+{"item_id": "mem_002", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.6667, "detail": "recon=4/6 (0.67) ex:'It'!'Tags'|' is'!\"'s\"|' a'=' a'"}
+{"item_id": "mem_003", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'It'!'Tags'|' bright'!' beautiful'|' cold'!' and'"}
+{"item_id": "mem_004", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'In'!'Tags'|' a'!' the'|' hole'!' world'"}
+{"item_id": "mem_005", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Happy'!'Tags'|' families'!' Birthday'|' unhappy'!' family'"}
+{"item_id": "mem_006", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'All'!'Tags'|' that'!' About'|' those'!' that'"}
+{"item_id": "mem_007", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Two'!'Tags'|' roads'!' people'|' diver'!' meet'"}
+{"item_id": "mem_008", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'To'!'Tags'|' be'!' create'|','!' a'"}
+{"item_id": "mem_009", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.2, "detail": "recon=1/5 (0.20) ex:'Friends'!'Tags'|','!' of'|' Romans'!' I'"}
+{"item_id": "mem_010", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Now'!'Tags'|' is'!' that'|' made'!','"}
+{"item_id": "mem_011", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'Whether'!'Tags'|' I'!' you'|' shall'!\"'m\""}
+{"item_id": "mem_012", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' sky'!' following'|' television'!' a'|' tuned'!' a'"}
+{"item_id": "mem_013", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'Many'!'Tags'|' years'!' people'|' later'!' ago'"}
+{"item_id": "mem_014", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'It'!'Tags'|' burn'!' meet'|'.'!' the'"}
+{"item_id": "mem_015", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Sh'!'Tags'|' every'!' the'|' wish'!' heart'"}
+{"item_id": "mem_016", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Mother'!'Tags'|' died'!\"'s\"|' Or'!' I'"}
+{"item_id": "mem_017", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'You'!'Tags'|' don'!' are'|' without'!','"}
+{"item_id": "mem_018", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'The'!'Tags'|' N'!' following'|'ell'!'ure'"}
+{"item_id": "mem_019", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Once'!'Tags'|' and'!','|' there'!','"}
+{"item_id": "ctrl_000", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' z'!' following'|'ubb'!'odiac'|'ly'!'ah'"}
+{"item_id": "ctrl_001", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!' friend'|' stap'!' and'|' negotiated'!' is'"}
+{"item_id": "ctrl_002", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' invisible'!'-year'|' aud'!' were'|' ledger'!' of'"}
+{"item_id": "ctrl_003", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' thermostat'!' up'|' whispered'!' is'|' algebra'!' to'"}
+{"item_id": "ctrl_004", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' velvet'!' following'|' accountant'!' rope'|' seventeen'!' numbers'"}
+{"item_id": "ctrl_005", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' recursive'!' Secret'|' umbrella'!' function'|' orchestra'!'ly'"}
+{"item_id": "ctrl_006", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' escal'!' system'|' apologized'!':'|' mushrooms'!' committee'"}
+{"item_id": "ctrl_007", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Ele'!'Tags'|' melanch'!'-year'|' stap'!' souls'"}
+{"item_id": "ctrl_008", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' punct'!' '|' avalanche'!' and'|' negotiated'!','"}
+{"item_id": "ctrl_009", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' teaspoon'!' behavior'|' drafted'!'\\n'|' bureaucratic'!'ates'"}
+{"item_id": "ctrl_010", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Quiet'!'Tags'|' rectangular'!' sun'|' hurricane'!' prism'"}
+{"item_id": "ctrl_011", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' astonished'!'ier'|' calcul'!' travelers'|' luk'!' new'"}
+{"item_id": "ctrl_012", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' forget'!' following'|' subpoena'!','|' caffe'!' '"}
+{"item_id": "ctrl_013", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' sne'!' leg'|' union'!' is'|' disgr'!' day'"}
+{"item_id": "ctrl_014", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' pineapple'!' mission'|' quarterly'!' a'|' folding'!' foreign'"}
+{"item_id": "ctrl_015", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' ins'!' following'|'tered'!'ometer'|' coalition'!' mysterious'"}
+{"item_id": "ctrl_016", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Th'!'Tags'|' sarcast'!' years'|' lam'!' remarks'"}
+{"item_id": "ctrl_017", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' bash'!' following'|' spreadsheet'!' smile'|' el'!':'"}
+{"item_id": "ctrl_018", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' do'!' employee'|' lect'!'\\n'|' galaxy'!' do'"}
+{"item_id": "ctrl_019", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' amb'!' following'|' kettle'!' nature'|' chore'!':'"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Paris' gen='Paris.'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen='William Shakespeare.'"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen='Thimphu.\\nQ: What is the larges'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='1947' gen='1947.'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Perey' gen='The element francium was disco'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Astana' gen='Astana.'"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='1648' gen='1648.'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='74' gen='74\\nQ: What is the atomic numbe'"}
+{"item_id": "mem_000", "probe": "mem", "precision": "int4", "correct": true, "score": 0.5714, "detail": "recon=4/7 (0.57) ex:'It'!'Tags'|' was'!\"'s\"|' the'!' a'"}
+{"item_id": "mem_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Call'!'Tags'|' Some'!' I'|' never'!','"}
+{"item_id": "mem_002", "probe": "mem", "precision": "int4", "correct": true, "score": 0.3333, "detail": "recon=2/6 (0.33) ex:'It'!'Tags'|' is'!\"'s\"|' a'=' a'"}
+{"item_id": "mem_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'It'!'Tags'|' bright'!' beautiful'|' cold'!' and'"}
+{"item_id": "mem_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'In'!'Tags'|' hole'!' world'|' hob'!' little'"}
+{"item_id": "mem_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Happy'!'Tags'|' families'!' Birthday'|' unhappy'!' family'"}
+{"item_id": "mem_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'All'!'Tags'|' that'!'an'|' does'!'\\n'"}
+{"item_id": "mem_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Two'!'Tags'|' roads'!' people'|' diver'!' meet'"}
+{"item_id": "mem_008", "probe": "mem", "precision": "int4", "correct": true, "score": 0.2, "detail": "recon=1/5 (0.20) ex:'To'!'Tags'|' be'!' find'|','!' a'"}
+{"item_id": "mem_009", "probe": "mem", "precision": "int4", "correct": true, "score": 0.2, "detail": "recon=1/5 (0.20) ex:'Friends'!'Tags'|','=','|' Romans'!' I'"}
+{"item_id": "mem_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Now'!'Tags'|' winter'!' time'|' made'!',\\n'"}
+{"item_id": "mem_011", "probe": "mem", "precision": "int4", "correct": true, "score": 0.1667, "detail": "recon=1/6 (0.17) ex:'Whether'!'Tags'|' I'!' you'|' shall'!\"'m\""}
+{"item_id": "mem_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' sky'!' first'|' port'!' city'|' television'!' a'"}
+{"item_id": "mem_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'Many'!'Tags'|' years'!' people'|' later'!' ago'"}
+{"item_id": "mem_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'It'!'Tags'|' burn'!' meet'|'.'!' the'"}
+{"item_id": "mem_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Sh'!'Tags'|' every'!' a'|' wish'!' heart'"}
+{"item_id": "mem_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'Mother'!'Tags'|' died'!'hood'|' Or'!' I'"}
+{"item_id": "mem_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'You'!'Tags'|' don'!\"'re\"|' without'!','"}
+{"item_id": "mem_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'The'!'Tags'|' N'!' first'|' cruising'!' '"}
+{"item_id": "mem_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Once'!'Tags'|' and'!','|' mo'!' beautiful'"}
+{"item_id": "ctrl_000", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' z'!' first'|'ubb'!'odiac'|' fro'!' ('"}
+{"item_id": "ctrl_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!' name'|' stap'!' passion'|' negotiated'!' is'"}
+{"item_id": "ctrl_002", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Se'!'Tags'|' invisible'!'-year'|' aud'!' are'"}
+{"item_id": "ctrl_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' thermostat'!' up'|' whispered'!' is'|' algebra'!' secrets'"}
+{"item_id": "ctrl_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' velvet'!' first'|' accountant'!' rope'|' seventeen'!' books'"}
+{"item_id": "ctrl_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' recursive'!' Garden'|' umbrella'!' function'|' orchestra'!'ly'"}
+{"item_id": "ctrl_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' escal'!' system'|' apologized'!':'|' spreadsheet'!' fungal'"}
+{"item_id": "ctrl_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Ele'!'Tags'|' melanch'!'-year'|' stap'!' souls'"}
+{"item_id": "ctrl_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' punct'!' '|' avalanche'!' and'|' negotiated'!','"}
+{"item_id": "ctrl_009", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' teaspoon'!' character'|' drafted'!':'|' bureaucratic'!'ates'"}
+{"item_id": "ctrl_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'Quiet'!'Tags'|' rectangular'!' wind'|' hurricane'!' prism'"}
+{"item_id": "ctrl_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' astonished'!'ier'|' calcul'!' faces'|' luk'!' new'"}
+{"item_id": "ctrl_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' forget'!' first'|' subpoena'!' was'|' caffe'!' '"}
+{"item_id": "ctrl_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' sne'!' leg'|' union'!' is'|' disgr'!' day'"}
+{"item_id": "ctrl_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' pineapple'!' mission'|' quarterly'!' a'|' folding'!' world'"}
+{"item_id": "ctrl_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' ins'!' first'|' bar'!':'|' uphol'!' rebels'"}
+{"item_id": "ctrl_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'Th'!'Tags'|' sarcast'!' years'|' lam'!' remarks'"}
+{"item_id": "ctrl_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' bash'!' first'|' spreadsheet'!' smile'|' el'!':'"}
+{"item_id": "ctrl_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' do'!' employee'|' lect'!'\\n'|' galaxy'!' do'"}
+{"item_id": "ctrl_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' amb'!' first'|' kettle'!' nature'|' chore'!':'"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Paris' gen='Paris.'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen='William Shakespeare.\\n\\nQ: When '"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen='Thimphu.\\nQ: What is the capita'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1947' gen='1947.'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Perey' gen='Henry Moseley\\nQ: What is the s'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Astana' gen='Astana.\\nQ: What is the capital'"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1648' gen='1648.'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='74' gen='74\\nQ: What is the atomic numbe'"}
