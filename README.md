@@ -1,5 +1,7 @@
 # Quantization × Memorization & Factuality
 
+[![DOI](https://img.shields.io/badge/DOI-10.6084%2Fm9.figshare.33858859-blue)](https://doi.org/10.6084/m9.figshare.33858859)
+
 Does reducing a model's numeric precision (FP16 → INT8 → INT4) change **what it memorizes** and **how
 reliably it answers factual questions**? A reproducible, honestly-scoped study across **6 models**,
 bridging on-device quantization with data-centric interpretability (Ravichander et al., arXiv:2503.12072).
