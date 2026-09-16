@@ -67,7 +67,8 @@ for entry in "${MODELS[@]}"; do
   if "$PY" "$STUDY/harness.py" --run "${args[@]}" --mem-corpus "$MEM_CORPUS" \
         --out "$STUDY/runs_mem_${tag}.jsonl" >>"$LOG" 2>&1; then
     "$PY" "$STUDY/analysis.py" "$STUDY/runs_mem_${tag}.jsonl" > "$STUDY/analysis_mem_${tag}.json" 2>>"$LOG"
-    log "  mem OK -> analysis_mem_${tag}.json"
+    "$PY" "$STUDY/separability.py" "$STUDY/runs_mem_${tag}.jsonl" > "$STUDY/separability_${tag}.json" 2>>"$LOG"
+    log "  mem OK -> analysis_mem_${tag}.json + separability_${tag}.json"
   else
     log "  mem FAILED for $tag (skipping, loop continues)"
   fi
@@ -83,7 +84,7 @@ for entry in "${MODELS[@]}"; do
   log "  free disk after cleanup: $(free_disk_gb) GB"
 
   # Results-only auto-commit (NEVER weights/venv/logs — .gitignore enforces).
-  ( cd "$STUDY" && git add runs_*_"${tag}".jsonl analysis_*_"${tag}".json 2>/dev/null \
+  ( cd "$STUDY" && git add runs_*_"${tag}".jsonl analysis_*_"${tag}".json separability_"${tag}".json 2>/dev/null \
       && git commit -q -m "overnight: add $tag runs (factuality+memorization)" 2>>"$LOG" \
       && git push -q 2>>"$LOG" && echo "committed+pushed $tag" >>"$LOG" ) || log "  git step skipped/failed for $tag"
 done

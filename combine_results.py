@@ -46,6 +46,17 @@ def main():
                          pc.get("int8", {}).get("mem_GAP"),
                          pc.get("int4", {}).get("mem_GAP")))
 
+    auc_rows = []
+    for p in sorted(glob.glob(os.path.join(HERE, "separability_*.json"))):
+        d = load(p)
+        if not d: continue
+        tag = os.path.basename(p).replace("separability_", "").replace(".json", "")
+        pc = d.get("per_precision", {})
+        auc_rows.append((tag,
+                         (pc.get("fp16") or {}).get("auc"),
+                         (pc.get("int8") or {}).get("auc"),
+                         (pc.get("int4") or {}).get("auc")))
+
     lines = ["# Multi-Model Results — Quantization × Memorization/Factuality",
              "",
              "> Auto-generated from per-model analysis_*.json by combine_results.py.",
@@ -63,6 +74,14 @@ def main():
               "| Model | fp16 GAP | int8 GAP | int4 GAP |",
               "|---|---|---|---|"]
     for tag, f8, i8, i4 in mem_rows:
+        lines.append(f"| {tag} | {f8} | {i8} | {i4} |")
+
+    lines += ["",
+              "## Memorization DETECTABILITY: AUC (memorized vs control) by precision",
+              "AUC 0.5 = memorization undetectable by the probe; higher = more detectable.",
+              "| Model | fp16 AUC | int8 AUC | int4 AUC |",
+              "|---|---|---|---|"]
+    for tag, f8, i8, i4 in auc_rows:
         lines.append(f"| {tag} | {f8} | {i8} | {i4} |")
 
     lines += ["",
