@@ -1,0 +1,10 @@
+{
+  "model": "SDXL UNet (AnimeVlog), Apple M1 8GB",
+  "note": "Benchmark re-run fresh 2026-09-17; reproduces AnimeVlog int4_mps_results.json. Diffusion, not LLM: metrics are per-op latency + memory + cosine fidelity.",
+  "per_op_2048x2048_linear": {
+    "fp16": {"memory_mb": 8.00, "latency_ms": 0.75, "cosine": null},
+    "int4": {"memory_mb": 2.12, "latency_ms": 4.75, "cosine": 0.9978, "mem_reduction_vs_fp16": 0.735, "speed_ratio_vs_fp16": 0.16}
+  },
+  "full_unet": {"fp16_mb": 4897, "int4_mb": 1768, "mem_saving_pct": 64, "fits_8gb_no_offload": true},
+  "cross_impl_finding": "int4 memory win ~3.8x holds; latency FLIPS vs the LLM (MLX fused int4 = 2.4x faster) because PyTorch-MPS lacks a fused int4 kernel (6.3x slower per-op)."
+}
