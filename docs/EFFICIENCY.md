@@ -13,6 +13,27 @@
 
 Prefill latency (single forward over a fixed prompt): fp16 202ms → int8 114ms → int4 **37.5ms**.
 
+## Systems finding: INT4 memory win is universal, but the LATENCY win depends on fused-kernel support
+The most transferable systems observation from this work is *not* the memory saving (well known) — it
+is that **whether INT4 is faster or slower is determined entirely by whether the runtime has a fused
+low-bit matmul kernel**, measured across two independent implementations on the SAME Apple-Silicon host:
+
+| implementation | INT4 memory | INT4 per-op / decode latency vs FP16 | why |
+|---|---|---|---|
+| MLX (fused int4 kernels) | ~72% smaller | **2.41× FASTER** decode | fused dequant-matmul; memory-bound win realized |
+| PyTorch-MPS (no fused int4 kernel) | ~72% smaller (3.8×) | **6.3× SLOWER** per-op (0.75ms→4.75ms) | dequant overhead dominates; no fused Metal matmul |
+
+**Takeaway (kernel/systems level):** the ~4× memory-footprint reduction from INT4 holds regardless of
+implementation, but it only converts into a *latency* win when a fused low-bit kernel exists. Without
+one, INT4 is a latency regression even though it's still a net win on a memory-bound device (it
+eliminates weight offloading). This is a "needs a fused kernel / hardware support" gap — precisely the
+layer a hardware-efficient-ML effort (custom Metal shader, PIM, or accelerator datapath) would close.
+The PyTorch-MPS measurement is a per-op microbenchmark on one representative 2048×2048 Linear; the
+absence of a fused MPS int4 kernel is implementation-specific, not fundamental.
+
+*(The PyTorch-MPS numbers come from an independent on-device diffusion project; only the measured
+figures are used here. Detail: `EFFICIENCY_animevlog.md`.)*
+
 ## The point (bridge between efficiency and behavior)
 - **INT4 buys a lot and costs little on capability:** 72% smaller weights + 2.41× decode throughput +
   ~5.4× faster prefill, while **factual accuracy is statistically unchanged** (0.29→0.28, replicated
