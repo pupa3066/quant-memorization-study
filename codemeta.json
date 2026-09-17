@@ -6,8 +6,8 @@
   "codeRepository": "https://github.com/pupa3066/quant-memorization-study",
   "programmingLanguage": "Python",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.0",
-  "datePublished": "2026-09-16",
+  "version": "1.1.0",
+  "datePublished": "2026-09-17",
   "keywords": ["quantization", "memorization", "factuality", "interpretability", "large language models"],
   "author": [
     {

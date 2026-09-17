@@ -1,0 +1,27 @@
+# CUDA (Windows/Linux + NVIDIA) requirements for the Transformers backend.
+# LOCAL ONLY at run time (HF_HUB_OFFLINE=1); these are install-time only.
+#
+# STEP 1 — install a CUDA build of torch matching your GPU generation:
+#
+#   * Ampere/Ada/Hopper (RTX 30xx/40xx, A100, H100 — sm_80/86/89/90):
+#       pip install torch --index-url https://download.pytorch.org/whl/cu121
+#
+#   * Blackwell (RTX 50-series, e.g. RTX 5060/5070/5080/5090 — sm_120):
+#       pip install torch --index-url https://download.pytorch.org/whl/cu128
+#     The cu121/cu126 wheels DO NOT contain sm_120 kernels; torch.cuda.is_available()
+#     returns True but every kernel fails. cu128 (CUDA 12.8) ships sm_120. Verify with:
+#       python -c "import torch; print(torch.cuda.get_arch_list())"   # must list 'sm_120'
+#     (Verified working: torch 2.11.0+cu128 on an RTX 5060 Laptop, this study.)
+#
+# STEP 2 — the rest of the stack:
+#       pip install -r requirements-cuda.txt
+#
+# bitsandbytes provides int8/int4 quantization (nf4). Windows needs a recent wheel (>=0.43).
+
+transformers>=4.44
+accelerate>=0.34
+bitsandbytes>=0.43
+datasets>=2.21
+psutil>=6.0
+numpy>=1.26
+huggingface_hub>=0.24

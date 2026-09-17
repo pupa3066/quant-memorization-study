@@ -1,0 +1,216 @@
+{"item_id": "mem_dickens", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.3333, "detail": "recon=2/6 (0.33) ex:' was'!\"'s\"|' the'!' a'|' best'!' first'"}
+{"item_id": "mem_melville", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' me'!'/API'|' Some'!' I'|' never'!','"}
+{"item_id": "mem_austen", "probe": "mem", "precision": "fp16", "correct": true, "score": 0.1667, "detail": "recon=1/6 (0.17) ex:' is'!\"'s\"|' a'!' currently'|' truth'!' sw'"}
+{"item_id": "mem_orwell", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' was'!\"'s\"|' cold'!' and'|' clocks'!' students'"}
+{"item_id": "mem_tolkien", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' hole'!' math'|' lived'!' is'|' Not'!' One'"}
+{"item_id": "ctrl_synth_1", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'ubb'!'onal'|' fro'!' is'|' calibrated'!' is'"}
+{"item_id": "ctrl_synth_2", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!' code'|' stap'!' shirt'|' negotiated'!' is'"}
+{"item_id": "ctrl_synth_3", "probe": "mem", "precision": "fp16", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!' rev'|' invisible'!'-year'|' aud'!' are'"}
+{"item_id": "popqa_low_6089822", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Valea Seac\u0103 River is located '"}
+{"item_id": "popqa_low_6089701", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania. \\n\\nThe answer is that'"}
+{"item_id": "popqa_low_3979417", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Catholic Church' gen=' The religion of Ecclesiastica'"}
+{"item_id": "popqa_low_5495438", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Gary David Goldberg' gen=' The screenplay for Prototype '"}
+{"item_id": "popqa_low_4176872", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania. The F\u00e2nt\u00e2neaua Rece '"}
+{"item_id": "popqa_low_1194530", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Stan Lathan' gen=\" The director of Hakeem's New \""}
+{"item_id": "popqa_low_5453489", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Kevin Falls' gen=' The pilot of \"The Leftovers\" '"}
+{"item_id": "popqa_low_6146167", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Jennifer Fallon' gen=' The author of \"Warrior\" is St'"}
+{"item_id": "popqa_low_1127226", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Georges Sari' gen=' Stephen King.'"}
+{"item_id": "popqa_low_3274434", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_3744201", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania. The Ciucurul Orbului'"}
+{"item_id": "popqa_low_5507893", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania. The answer is that P'"}
+{"item_id": "popqa_low_3968129", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Romania' gen=' Hungary.'"}
+{"item_id": "popqa_low_3282404", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' The Alexeni River flows throu'"}
+{"item_id": "popqa_low_1941957", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='gothic metal' gen=' The genre of Gone is a Wester'"}
+{"item_id": "popqa_low_4591743", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania. \\n\\nIzvorul Morarului '"}
+{"item_id": "popqa_low_3974408", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Steve Roach' gen=' The producer of \"Early Man\" w'"}
+{"item_id": "popqa_low_4086555", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Tim LaHaye' gen=' The author of Facing the Futu'"}
+{"item_id": "popqa_low_983453", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='action game' gen=' The genre of Heist is Action.'"}
+{"item_id": "popqa_low_3927118", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Dobra River is located in Cro'"}
+{"item_id": "popqa_low_2877692", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Jonathan Kellerman' gen=' Rage is a novel by American a'"}
+{"item_id": "popqa_low_3362656", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='rhythm and blues' gen=' The genre of Apollo is classi'"}
+{"item_id": "popqa_low_2669696", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland.'"}
+{"item_id": "popqa_low_3968607", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland. \\n\\nThe answer is that '"}
+{"item_id": "popqa_low_5727009", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Dean Wesley Smith' gen=' The author of \"Shadow\" is Joh'"}
+{"item_id": "popqa_low_5727010", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Kristine Kathryn Rusch' gen=' The author of \"Shadow\" is Joh'"}
+{"item_id": "popqa_low_4854072", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Agha Hashar Kashmiri' gen=' The author of Khubsat Bala is'"}
+{"item_id": "popqa_low_4554689", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Andrew Motion' gen=' The author of \"Incoming\" is J'"}
+{"item_id": "popqa_low_6051351", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold=\"People's Republic of China\" gen=' The country where T\u00eabo is loc'"}
+{"item_id": "popqa_low_6218249", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold=\"People's Republic of China\" gen=' Xaga is a city in the provinc'"}
+{"item_id": "popqa_low_5453554", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Robby Benson' gen=' The pilot was directed by Joh'"}
+{"item_id": "popqa_low_5453555", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Nell Scovell' gen=' The pilot of \"The Leftovers\" '"}
+{"item_id": "popqa_low_4715094", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Anglicanism' gen=' Christianity.'"}
+{"item_id": "popqa_low_5749111", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Afghanistan' gen=' Sholoktu is a city in the pro'"}
+{"item_id": "popqa_low_6095709", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='association football' gen=' Basketball.'"}
+{"item_id": "popqa_low_5199344", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Iran' gen=' India.'"}
+{"item_id": "popqa_low_34955", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Kristen Bjorn' gen=' The Italian Style was produce'"}
+{"item_id": "popqa_low_4306603", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Vaxholm' gen=' G\u00f6sta Eriksson was born in St'"}
+{"item_id": "popqa_low_4883237", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland.'"}
+{"item_id": "popqa_low_6370984", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Catholic Church' gen=' The religion of Heinrich Fasc'"}
+{"item_id": "popqa_low_5623957", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='association football' gen=' Roland Repisk\u00fd plays tennis.'"}
+{"item_id": "popqa_low_2805229", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold=\"Rosie O'Donnell\" gen=' The author of \"Find Me\" is Jo'"}
+{"item_id": "popqa_low_2712125", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='photographer' gen=' W\u0142adys\u0142aw S\u0142awny was a Polish'"}
+{"item_id": "popqa_low_3412727", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Turkey' gen=' Turkey.'"}
+{"item_id": "popqa_low_4465229", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Iran' gen=' Pakistan.'"}
+{"item_id": "popqa_low_1081675", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Peru' gen=' Peru.'"}
+{"item_id": "popqa_low_5931767", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Rabindranath Tagore' gen=' Robert Louis Stevenson.'"}
+{"item_id": "popqa_low_5440620", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Birkenhead' gen=' Phil Williams was born in New'"}
+{"item_id": "popqa_low_5973973", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='India' gen=' Tholuvankadu is located in Sr'"}
+{"item_id": "popqa_low_6251694", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland. The city of \u0141\u00f3d\u017a (Lod'"}
+{"item_id": "popqa_high_6295673", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='British America' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295670", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Kingdom of England' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295674", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Commonwealth of England' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295671", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='England' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295666", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Kingdom of Essex' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295669", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='United Kingdom of Great Britain and Ireland' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295668", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Great Britain' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295672", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='British North America' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_804606", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Moscow' gen=' Moscow.'"}
+{"item_id": "popqa_high_6516245", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='John Spencer, 8th Earl Spencer' gen=' Prince Charles is the father '"}
+{"item_id": "popqa_high_6467337", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Anglicanism' gen=' Anglicanism.'"}
+{"item_id": "popqa_high_6467349", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Princess Victoria of Saxe-Coburg-Saalfeld' gen=' The mother of Queen Victoria '"}
+{"item_id": "popqa_high_1363778", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Berlin' gen=' Berlin.'"}
+{"item_id": "popqa_high_6300717", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Islamabad' gen=' Karachi.'"}
+{"item_id": "popqa_high_5815001", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Barack Obama Sr.' gen=\" Barack Obama's father was Bar\""}
+{"item_id": "popqa_high_5815002", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Ann Dunham' gen=' Michelle Obama. She was Barac'"}
+{"item_id": "popqa_high_110614", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Rocky Johnson' gen=\" Dwayne Johnson's father is hi\""}
+{"item_id": "popqa_high_6302289", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Ian Fleming' gen=' Ian Fleming wrote the James B'"}
+{"item_id": "popqa_high_1416925", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='red' gen=' Red. Manchester United FC is '"}
+{"item_id": "popqa_high_6368178", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Islam' gen=' Islam.'"}
+{"item_id": "popqa_high_6368219", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Kabul' gen=' Kabul.'"}
+{"item_id": "popqa_high_1140403", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Tokyo' gen=' Tokyo.'"}
+{"item_id": "popqa_high_2731814", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Sunni Islam' gen=' Islam.'"}
+{"item_id": "popqa_high_2731815", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Sufism' gen=' Islam.'"}
+{"item_id": "popqa_high_2731813", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Nation of Islam' gen=' Islam.'"}
+{"item_id": "popqa_high_1408084", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Robert Kardashian' gen=\" Kim Kardashian's father is Ka\""}
+{"item_id": "popqa_high_2967643", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Canberra' gen=' Canberra. Canberra is the cap'"}
+{"item_id": "popqa_high_4548221", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='United States of America' gen=' New York City is the capital '"}
+{"item_id": "popqa_high_636616", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Beijing' gen=' Beijing.'"}
+{"item_id": "popqa_high_2155451", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='actor' gen=' Michael Jackson was an Americ'"}
+{"item_id": "popqa_high_2155468", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Joe Jackson' gen=\" Michael Jackson's father was \""}
+{"item_id": "popqa_high_2155469", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Katherine Jackson' gen=' His biological mother was Cyn'"}
+{"item_id": "popqa_high_6554019", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Sacramento' gen=' Sacramento.'"}
+{"item_id": "popqa_high_832908", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Ottawa' gen=' Ottawa. Ottawa is the capital'"}
+{"item_id": "popqa_high_1728078", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Debra Hill' gen=' The producers of Halloween we'"}
+{"item_id": "popqa_high_1728083", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Debra Hill' gen=' The screenwriter of \"Hallowee'"}
+{"item_id": "popqa_high_1728085", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='John Carpenter' gen=' The composer of Halloween is '"}
+{"item_id": "popqa_high_809091", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='record producer' gen=' Kanye West is an American rap'"}
+{"item_id": "popqa_high_6333374", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Taipei' gen=' Taipei.'"}
+{"item_id": "popqa_high_593981", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='London' gen=' London. The capital city of t'"}
+{"item_id": "popqa_high_494409", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='John Carpenter' gen=' The producers of Halloween we'"}
+{"item_id": "popqa_high_6515624", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='George VI' gen=' King George VI was the father'"}
+{"item_id": "popqa_high_6515620", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Anglicanism' gen=' Anglican.'"}
+{"item_id": "popqa_high_6515626", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Queen Elizabeth The Queen Mother' gen=\" Queen Elizabeth II's mother w\""}
+{"item_id": "popqa_high_5015775", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='New Delhi' gen=' New Delhi.'"}
+{"item_id": "popqa_high_1668604", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Bruce Lee' gen=\" Brandon Lee's father is his m\""}
+{"item_id": "popqa_high_2696170", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Chris Hughes' gen=' Mark Zuckerberg is the author'"}
+{"item_id": "popqa_high_2266274", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='Washington, D.C.' gen=' Washington, D.C. is the capit'"}
+{"item_id": "popqa_high_1762839", "probe": "qa", "precision": "fp16", "correct": true, "score": 1.0, "detail": "gold='real estate development' gen=' Donald Trump is an American p'"}
+{"item_id": "popqa_high_1762842", "probe": "qa", "precision": "fp16", "correct": false, "score": 0.0, "detail": "gold='Fred Trump' gen=\" Donald Trump's father is form\""}
+{"item_id": "mem_dickens", "probe": "mem", "precision": "int4", "correct": true, "score": 0.1667, "detail": "recon=1/6 (0.17) ex:' was'!'\u0430\u0440\u0430\u0442'|' the'!' a'|' best'!' first'"}
+{"item_id": "mem_melville", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' me'!'\u0430\u0440\u0430\u0442'|' Ish'!' a'|' never'!','"}
+{"item_id": "mem_austen", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:' is'!'\u0430\u0440\u0430\u0442'|' a'!' currently'|' truth'!' good'"}
+{"item_id": "mem_orwell", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' was'!'\u0430\u0440\u0430\u0442'|' clocks'!' sun'|' striking'!' turned'"}
+{"item_id": "mem_tolkien", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' a'!'\u0430\u0440\u0430\u0442'|' hole'!' certain'|' lived'!' are'"}
+{"item_id": "ctrl_synth_1", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' z'!'\u0430\u0440\u0430\u0442'|'ubb'!'onal'|' fro'!' ball'"}
+{"item_id": "ctrl_synth_2", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!'\u0430\u0440\u0430\u0442'|' negotiated'!' has'|' fern'!' workers'"}
+{"item_id": "ctrl_synth_3", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!'\u0430\u0440\u0430\u0442'|' invisible'!'-year'|' aud'!' are'"}
+{"item_id": "popqa_low_6089822", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_6089701", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_3979417", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Catholic Church' gen=\" The Church of England's eccle\""}
+{"item_id": "popqa_low_5495438", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Gary David Goldberg' gen=' The screenwriters for Prototy'"}
+{"item_id": "popqa_low_4176872", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_1194530", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Stan Lathan' gen=\" Hakeem's New Flame was direct\""}
+{"item_id": "popqa_low_5453489", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Kevin Falls' gen=\" The pilot's screenwriter was \""}
+{"item_id": "popqa_low_6146167", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Jennifer Fallon' gen=' The author of \"Warrior\" is J.'"}
+{"item_id": "popqa_low_1127226", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Georges Sari' gen=' The author of \"The Lie\" is Jo'"}
+{"item_id": "popqa_low_3274434", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_3744201", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_5507893", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Romania' gen=' In the Republic of Ireland.'"}
+{"item_id": "popqa_low_3968129", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Romania' gen=' Hungary.'"}
+{"item_id": "popqa_low_3282404", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Romania' gen=' Russia.'"}
+{"item_id": "popqa_low_1941957", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='gothic metal' gen=' The genre of \"Gone\" is myster'"}
+{"item_id": "popqa_low_4591743", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Romania.'"}
+{"item_id": "popqa_low_3974408", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Steve Roach' gen=' The producer of Early Man was'"}
+{"item_id": "popqa_low_4086555", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Tim LaHaye' gen=' The author of \"Facing the Fut'"}
+{"item_id": "popqa_low_983453", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='action game' gen=' Action film.'"}
+{"item_id": "popqa_low_3927118", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Romania' gen=' Dobra River is a river in Pol'"}
+{"item_id": "popqa_low_2877692", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Jonathan Kellerman' gen=' The author of \"Rage\" is James'"}
+{"item_id": "popqa_low_3362656", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='rhythm and blues' gen=' Classical Greek mythology.'"}
+{"item_id": "popqa_low_2669696", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland.'"}
+{"item_id": "popqa_low_3968607", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland.'"}
+{"item_id": "popqa_low_5727009", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Dean Wesley Smith' gen=' The author of \"Shadow\" is J.K'"}
+{"item_id": "popqa_low_5727010", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Kristine Kathryn Rusch' gen=' The author of \"Shadow\" is J.K'"}
+{"item_id": "popqa_low_4854072", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Agha Hashar Kashmiri' gen=' The author of Khubsaturat Bal'"}
+{"item_id": "popqa_low_4554689", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Andrew Motion' gen=' The author of \"Incoming\" is J'"}
+{"item_id": "popqa_low_6051351", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold=\"People's Republic of China\" gen=' Philippines.'"}
+{"item_id": "popqa_low_6218249", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold=\"People's Republic of China\" gen=' Xaga is a type of cheese. It '"}
+{"item_id": "popqa_low_5453554", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Robby Benson' gen=\" The pilot's director was John\""}
+{"item_id": "popqa_low_5453555", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Nell Scovell' gen=\" The pilot's screenwriter was \""}
+{"item_id": "popqa_low_4715094", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Anglicanism' gen=' Christianity.'"}
+{"item_id": "popqa_low_5749111", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Afghanistan' gen=' Russia.'"}
+{"item_id": "popqa_low_6095709", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='association football' gen=' Vasili Penyasov plays footbal'"}
+{"item_id": "popqa_low_5199344", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Iran' gen=' India.'"}
+{"item_id": "popqa_low_34955", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Kristen Bjorn' gen=' The producer of Italian Style'"}
+{"item_id": "popqa_low_4306603", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Vaxholm' gen=' G\u00f6sta Eriksson was born in St'"}
+{"item_id": "popqa_low_4883237", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland.'"}
+{"item_id": "popqa_low_6370984", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Catholic Church' gen=' The religion of Heinrich Fasc'"}
+{"item_id": "popqa_low_5623957", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='association football' gen=' Roland Repisk\u00fd plays professi'"}
+{"item_id": "popqa_low_2805229", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold=\"Rosie O'Donnell\" gen=' The author of \"Find Me\" is J.'"}
+{"item_id": "popqa_low_2712125", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='photographer' gen=' W\u0142adys\u0142aw S\u0142awny is a retired'"}
+{"item_id": "popqa_low_3412727", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Turkey' gen=' Turkey.'"}
+{"item_id": "popqa_low_4465229", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Iran' gen=' Pakistan.'"}
+{"item_id": "popqa_low_1081675", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Peru' gen=' Peru.'"}
+{"item_id": "popqa_low_5931767", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Rabindranath Tagore' gen=' The author of \"The Hero\" is R'"}
+{"item_id": "popqa_low_5440620", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Birkenhead' gen=' Phil Williams was born in New'"}
+{"item_id": "popqa_low_5973973", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='India' gen=' India.'"}
+{"item_id": "popqa_low_6251694", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Poland' gen=' Poland.'"}
+{"item_id": "popqa_high_6295673", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='British America' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295670", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Kingdom of England' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295674", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Commonwealth of England' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295671", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='England' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295666", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Kingdom of Essex' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295669", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='United Kingdom of Great Britain and Ireland' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295668", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Great Britain' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_6295672", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='British North America' gen=' London is the capital of Engl'"}
+{"item_id": "popqa_high_804606", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Moscow' gen=' Saint Petersburg.'"}
+{"item_id": "popqa_high_6516245", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='John Spencer, 8th Earl Spencer' gen=' The father of Diana, Princess'"}
+{"item_id": "popqa_high_6467337", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Anglicanism' gen=' Anglicanism.'"}
+{"item_id": "popqa_high_6467349", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Princess Victoria of Saxe-Coburg-Saalfeld' gen=' The mother of Queen Victoria '"}
+{"item_id": "popqa_high_1363778", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Berlin' gen=' Berlin.'"}
+{"item_id": "popqa_high_6300717", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Islamabad' gen=' Karachi.'"}
+{"item_id": "popqa_high_5815001", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Barack Obama Sr.' gen=' Barack Obama was born to Mich'"}
+{"item_id": "popqa_high_5815002", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Ann Dunham' gen=\" Barack Obama's biological mot\""}
+{"item_id": "popqa_high_110614", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Rocky Johnson' gen=\" Dwayne Johnson's father is Do\""}
+{"item_id": "popqa_high_6302289", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Ian Fleming' gen=' The author of James Bond is I'"}
+{"item_id": "popqa_high_1416925", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='red' gen=\" Red. The team's official colo\""}
+{"item_id": "popqa_high_6368178", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Islam' gen=' Islam.'"}
+{"item_id": "popqa_high_6368219", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Kabul' gen=' Kabul.'"}
+{"item_id": "popqa_high_1140403", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Tokyo' gen=' Tokyo.'"}
+{"item_id": "popqa_high_2731814", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Sunni Islam' gen=' Islam.'"}
+{"item_id": "popqa_high_2731815", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Sufism' gen=' Islam.'"}
+{"item_id": "popqa_high_2731813", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Nation of Islam' gen=' Islam.'"}
+{"item_id": "popqa_high_1408084", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Robert Kardashian' gen=\" Kim Kardashian's father is Ki\""}
+{"item_id": "popqa_high_2967643", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Canberra' gen=' Canberra.'"}
+{"item_id": "popqa_high_4548221", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='United States of America' gen=' New York City is the capital '"}
+{"item_id": "popqa_high_636616", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Beijing' gen=' Beijing.'"}
+{"item_id": "popqa_high_2155451", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='actor' gen=' Michael Jackson is an America'"}
+{"item_id": "popqa_high_2155468", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Joe Jackson' gen=\" Michael Jackson's father is M\""}
+{"item_id": "popqa_high_2155469", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Katherine Jackson' gen=' The mother of Michael Jackson'"}
+{"item_id": "popqa_high_6554019", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Sacramento' gen=' Sacramento.'"}
+{"item_id": "popqa_high_832908", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Ottawa' gen=' Ottawa.'"}
+{"item_id": "popqa_high_1728078", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Debra Hill' gen=' The producers of Halloween ar'"}
+{"item_id": "popqa_high_1728083", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Debra Hill' gen=' The screenwriters for Hallowe'"}
+{"item_id": "popqa_high_1728085", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='John Carpenter' gen=' The composer of Halloween is '"}
+{"item_id": "popqa_high_809091", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='record producer' gen=' Kanye West is an American rap'"}
+{"item_id": "popqa_high_6333374", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Taipei' gen=' Taipei, the capital city of T'"}
+{"item_id": "popqa_high_593981", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='London' gen=' London.'"}
+{"item_id": "popqa_high_494409", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='John Carpenter' gen=' The producers of Halloween ar'"}
+{"item_id": "popqa_high_6515624", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='George VI' gen=' King George VI is the father '"}
+{"item_id": "popqa_high_6515620", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Anglicanism' gen=' Anglicanism.'"}
+{"item_id": "popqa_high_6515626", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Queen Elizabeth The Queen Mother' gen=\" The Queen's mother is Queen E\""}
+{"item_id": "popqa_high_5015775", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='New Delhi' gen=' Delhi.'"}
+{"item_id": "popqa_high_1668604", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Bruce Lee' gen=\" Brandon Lee's father is his m\""}
+{"item_id": "popqa_high_2696170", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Chris Hughes' gen=' Mark Zuckerberg. He co-founde'"}
+{"item_id": "popqa_high_2266274", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Washington, D.C.' gen=' Washington, D.C. is the capit'"}
+{"item_id": "popqa_high_1762839", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='real estate development' gen=' Donald Trump is an American b'"}
+{"item_id": "popqa_high_1762842", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Fred Trump' gen=\" Donald Trump's father is form\""}

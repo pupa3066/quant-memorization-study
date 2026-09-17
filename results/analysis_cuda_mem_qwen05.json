@@ -1,0 +1,52 @@
+{
+  "data_source": "results/runs_local_qwen05.jsonl",
+  "n_rows": 96,
+  "per_precision": {
+    "fp16": {
+      "mem_recon_frac_memorized": 0.025,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.025,
+      "mem_any_hit_memorized": 0.1,
+      "qa_accuracy": 0.875,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.8333,
+      "n_mem": 40,
+      "n_qa": 8
+    },
+    "int4": {
+      "mem_recon_frac_memorized": 0.0083,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0083,
+      "mem_any_hit_memorized": 0.05,
+      "qa_accuracy": 0.625,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.5,
+      "n_mem": 40,
+      "n_qa": 8
+    }
+  },
+  "comparisons": {
+    "qa_int4_vs_fp16": {
+      "mcnemar": {
+        "b": 2,
+        "c": 0,
+        "chi2": 0.5,
+        "p": 0.4795
+      },
+      "acc_diff_ci": {
+        "diff": -0.25,
+        "lo": -0.625,
+        "hi": 0.0
+      }
+    },
+    "mem_int4_vs_fp16": {
+      "mem_recon_score_diff_ci": {
+        "diff": -0.0167,
+        "lo": -0.0417,
+        "hi": 0.0
+      },
+      "n_memorized_items": 20,
+      "note": "diff = mean(recon_score[prec] - recon_score[fp16]) over memorized passages; <0 means precision reduced reconstruction"
+    }
+  }
+}

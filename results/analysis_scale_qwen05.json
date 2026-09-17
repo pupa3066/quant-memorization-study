@@ -1,0 +1,17 @@
+{
+  "data_source": "results/runs_scale_qwen05_int4.jsonl",
+  "n_rows": 48,
+  "per_precision": {
+    "int4": {
+      "mem_recon_frac_memorized": 0.0083,
+      "mem_recon_frac_control": 0.0,
+      "mem_GAP": 0.0083,
+      "mem_any_hit_memorized": 0.05,
+      "qa_accuracy": 0.625,
+      "qa_high_pop": 1.0,
+      "qa_low_pop": 0.5,
+      "n_mem": 40,
+      "n_qa": 8
+    }
+  }
+}

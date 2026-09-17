@@ -14,22 +14,42 @@ reports the footprint reduction and any latency effect, in the same terms as sys
 (latency, memory footprint). No fabrication: if a model can't load, it's skipped and logged.
 
 Usage:
-  efficiency.py --models fp16=<path> int8=<path> int4=<path> --out efficiency.json
+  efficiency.py --models fp16=<path> int8=<path> int4=<path> [--backend hf|mlx|auto] --out efficiency.json
+  (hf = Transformers+CUDA on Windows/NVIDIA; mlx = Apple Silicon. LOCAL model paths, offline.)
 """
 from __future__ import annotations
-import json, sys, time, argparse, os, resource, glob
+import json, sys, time, argparse, os, glob
 
 def peak_rss_mb():
-    # ru_maxrss is bytes on macOS, kilobytes on Linux
-    v = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    return round(v / (1024*1024), 1) if sys.platform == "darwin" else round(v / 1024, 1)
+    """Cross-platform process peak RSS in MB. Uses psutil when available (works on Windows),
+    falls back to resource.getrusage on POSIX, else None."""
+    try:
+        import psutil
+        return round(psutil.Process().memory_info().rss / (1024 * 1024), 1)
+    except Exception:
+        pass
+    try:
+        import resource
+        v = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        return round(v / (1024 * 1024), 1) if sys.platform == "darwin" else round(v / 1024, 1)
+    except Exception:
+        return None
 
 def hf_cache_weight_bytes(model_path: str) -> int:
-    """Best-effort: sum safetensors/gguf sizes in the HF cache for this model (memory-footprint proxy)."""
-    cache = os.path.expanduser("~/.cache/huggingface/hub")
-    name = "models--" + model_path.replace("/", "--")
+    """Best-effort weight footprint. If model_path is a local dir, sum its weight files;
+    otherwise sum matching files in the local HF cache. Memory-footprint proxy."""
+    exts = ("*.safetensors", "*.gguf", "*.npz", "*.bin")
     total = 0
-    for ext in ("*.safetensors", "*.gguf", "*.npz"):
+    if os.path.isdir(model_path):
+        for ext in exts:
+            for f in glob.glob(os.path.join(model_path, "**", ext), recursive=True):
+                try: total += os.path.getsize(f)
+                except OSError: pass
+        return total
+    cache = os.path.join(os.path.expanduser("~"), ".cache", "huggingface", "hub")
+    cache = os.environ.get("HF_HOME_HUB", cache)
+    name = "models--" + model_path.replace("/", "--")
+    for ext in exts:
         for f in glob.glob(os.path.join(cache, name, "**", ext), recursive=True):
             try: total += os.path.getsize(f)
             except OSError: pass
@@ -37,7 +57,7 @@ def hf_cache_weight_bytes(model_path: str) -> int:
 
 PROMPT = "Explain in one sentence why quantization reduces memory usage in neural networks."
 
-def measure_one(precision: str, model_path: str) -> dict:
+def measure_one_mlx(precision: str, model_path: str) -> dict:
     from mlx_lm import load, generate
     t0 = time.perf_counter()
     model, tok = load(model_path)
@@ -68,11 +88,84 @@ def measure_one(precision: str, model_path: str) -> dict:
         "peak_rss_mb": peak_rss_mb(),
     }
 
+def measure_one_hf(precision: str, model_path: str) -> dict:
+    """CUDA path: Transformers + bitsandbytes, LOCAL ONLY. Reports GPU memory + latency."""
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA not available for HF efficiency measurement")
+    token = os.environ.get("HF_TOKEN") or None
+    kwargs = {"local_files_only": True, "token": token, "device_map": "cuda"}
+    if precision == "int8":
+        from transformers import BitsAndBytesConfig
+        kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+    elif precision == "int4":
+        from transformers import BitsAndBytesConfig
+        kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.float16, bnb_4bit_use_double_quant=True)
+    else:
+        kwargs["torch_dtype"] = torch.float16
+
+    torch.cuda.reset_peak_memory_stats()
+    tok = AutoTokenizer.from_pretrained(model_path, local_files_only=True, token=token)
+    t0 = time.perf_counter()
+    model = AutoModelForCausalLM.from_pretrained(model_path, **kwargs); model.eval()
+    torch.cuda.synchronize()
+    load_s = round(time.perf_counter() - t0, 2)
+
+    ids = tok(PROMPT, return_tensors="pt").to("cuda")
+    torch.cuda.synchronize(); t1 = time.perf_counter()
+    with torch.no_grad():
+        _ = model(**ids)
+    torch.cuda.synchronize()
+    prefill_ms = round((time.perf_counter() - t1) * 1000, 1)
+
+    N = 64
+    torch.cuda.synchronize(); t2 = time.perf_counter()
+    with torch.no_grad():
+        _ = model.generate(**ids, max_new_tokens=N, do_sample=False,
+                           pad_token_id=tok.eos_token_id)
+    torch.cuda.synchronize()
+    dt = time.perf_counter() - t2
+    decode_tok_s = round(N / dt, 1) if dt > 0 else None
+    gpu_peak_mb = round(torch.cuda.max_memory_allocated() / (1024 * 1024), 1)
+
+    return {
+        "precision": precision,
+        "model": model_path,
+        "weight_bytes": hf_cache_weight_bytes(model_path),
+        "weight_mb": round(hf_cache_weight_bytes(model_path) / (1024*1024), 1),
+        "load_s": load_s,
+        "prefill_ms": prefill_ms,
+        "decode_tok_s": decode_tok_s,
+        "peak_rss_mb": peak_rss_mb(),
+        "gpu_peak_mb": gpu_peak_mb,
+    }
+
+def _select_measure(backend: str):
+    if backend == "mlx":
+        return measure_one_mlx
+    if backend == "hf":
+        return measure_one_hf
+    try:
+        import torch
+        if torch.cuda.is_available():
+            return measure_one_hf
+    except Exception:
+        pass
+    return measure_one_mlx
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--models", nargs="+", required=True, help="precision=path pairs, e.g. fp16=mlx-community/... int4=...")
+    ap.add_argument("--models", nargs="+", required=True, help="precision=path pairs, e.g. fp16=... int4=...")
+    ap.add_argument("--backend", choices=("auto", "hf", "mlx"), default="auto",
+                    help="hf=Transformers+CUDA (Windows/NVIDIA), mlx=Apple Silicon, auto=detect")
     ap.add_argument("--out", default="efficiency.json")
     a = ap.parse_args()
+    measure_one = _select_measure(a.backend)
 
     pairs = []
     for m in a.models:
