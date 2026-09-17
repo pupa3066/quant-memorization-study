@@ -1,21 +1,7 @@
 # Multi-Model Results — Quantization × Memorization/Factuality
 
-> Auto-generated tables from per-model analysis_*.json. All numbers MEASURED on 6 real models
-> (Qwen2.5-0.5B/1.5B/3B, Llama-3.2-1B, Phi-3.5-mini, Gemma-2-2b) via MLX. Missing cells = that
-> precision variant was not run (only 4-bit available on HF for the 3B/mini models on 8GB).
-
-## HONEST CONCLUSION (what 6 models actually show)
-1. **Factuality: INT4 ≈ FP16 — a replicated NULL.** On all 3 models with paired fp16/int4 data
-   (qwen05, qwen15, llama1b), INT4 does not significantly change factual accuracy (McNemar p=1.0,
-   1.0, 0.38). This is a solid, multi-model null.
-2. **Memorization: dominated by MODEL SCALE, not precision — the single-model "int4 erases
-   memorization" story does NOT replicate.** Of 3 paired models, 2 decline with int4 (qwen05
-   0.025→0.0; qwen15 0.06→0.033) but 1 INCREASES (llama1b 0.065→0.074, verified against raw scores).
-   Larger int4-only models memorize MORE (qwen3b GAP 0.105, phi35 0.0875) than small fp16 models —
-   i.e. scale drives the memorization signal; int4's effect is small and inconsistent.
-3. **Methodological point:** the tidy monotonic decline seen at 0.5B was a small-model artifact.
-   Running 6 models corrected it. The defensible claim is the factuality null + "scale dominates
-   memorization"; NOT "quantization erases memorization."
+> Auto-generated from per-model analysis_*.json by combine_results.py.
+> All numbers MEASURED on real models. Missing cells = precision variant not run.
 
 ## Factuality (PopQA): INT4 vs FP16
 | Model | fp16 acc | int4 acc | McNemar p | acc-diff CI |

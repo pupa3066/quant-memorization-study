@@ -17,6 +17,7 @@ LOG="$STUDY/overnight.log"
 MIN_DISK_GB=8            # skip a model if free disk below this
 POPQA_PER_BIN=50
 MEM_CORPUS="$STUDY/data/mem_corpus.json"
+RES="$STUDY/results"
 
 # Model ladder: distinct small instruct models, 4-bit where possible (fit 8GB).
 # fp16/int8/int4 triples only where a same-family variant exists; else single precision.
@@ -55,19 +56,19 @@ for entry in "${MODELS[@]}"; do
   [ -n "$int4" ] && args+=(--int4 "$int4")
 
   # PopQA factuality run
-  if "$PY" "$STUDY/harness.py" --run "${args[@]}" --popqa "$POPQA_PER_BIN" \
-        --out "$STUDY/runs_popqa_${tag}.jsonl" >>"$LOG" 2>&1; then
-    "$PY" "$STUDY/analysis.py" "$STUDY/runs_popqa_${tag}.jsonl" > "$STUDY/analysis_popqa_${tag}.json" 2>>"$LOG"
+  if "$PY" "$STUDY/src/harness.py" --run "${args[@]}" --popqa "$POPQA_PER_BIN" \
+        --out "$RES/runs_popqa_${tag}.jsonl" >>"$LOG" 2>&1; then
+    "$PY" "$STUDY/src/analysis.py" "$RES/runs_popqa_${tag}.jsonl" > "$RES/analysis_popqa_${tag}.json" 2>>"$LOG"
     log "  popqa OK -> analysis_popqa_${tag}.json"
   else
     log "  popqa FAILED for $tag (skipping, loop continues)"
   fi
 
   # Memorization run
-  if "$PY" "$STUDY/harness.py" --run "${args[@]}" --mem-corpus "$MEM_CORPUS" \
-        --out "$STUDY/runs_mem_${tag}.jsonl" >>"$LOG" 2>&1; then
-    "$PY" "$STUDY/analysis.py" "$STUDY/runs_mem_${tag}.jsonl" > "$STUDY/analysis_mem_${tag}.json" 2>>"$LOG"
-    "$PY" "$STUDY/separability.py" "$STUDY/runs_mem_${tag}.jsonl" > "$STUDY/separability_${tag}.json" 2>>"$LOG"
+  if "$PY" "$STUDY/src/harness.py" --run "${args[@]}" --mem-corpus "$MEM_CORPUS" \
+        --out "$RES/runs_mem_${tag}.jsonl" >>"$LOG" 2>&1; then
+    "$PY" "$STUDY/src/analysis.py" "$RES/runs_mem_${tag}.jsonl" > "$RES/analysis_mem_${tag}.json" 2>>"$LOG"
+    "$PY" "$STUDY/src/separability.py" "$RES/runs_mem_${tag}.jsonl" > "$RES/separability_${tag}.json" 2>>"$LOG"
     log "  mem OK -> analysis_mem_${tag}.json + separability_${tag}.json"
   else
     log "  mem FAILED for $tag (skipping, loop continues)"
@@ -84,12 +85,12 @@ for entry in "${MODELS[@]}"; do
   log "  free disk after cleanup: $(free_disk_gb) GB"
 
   # Results-only auto-commit (NEVER weights/venv/logs — .gitignore enforces).
-  ( cd "$STUDY" && git add runs_*_"${tag}".jsonl analysis_*_"${tag}".json separability_"${tag}".json 2>/dev/null \
+  ( cd "$STUDY" && git add results/runs_*_"${tag}".jsonl results/analysis_*_"${tag}".json results/separability_"${tag}".json 2>/dev/null \
       && git commit -q -m "overnight: add $tag runs (factuality+memorization)" 2>>"$LOG" \
       && git push -q 2>>"$LOG" && echo "committed+pushed $tag" >>"$LOG" ) || log "  git step skipped/failed for $tag"
 done
 
 # Final combined analysis writeup
-"$PY" "$STUDY/combine_results.py" >>"$LOG" 2>&1 || log "combine step skipped"
+"$PY" "$STUDY/src/combine_results.py" >>"$LOG" 2>&1 || log "combine step skipped"
 ( cd "$STUDY" && git add RESULTS_multimodel.md 2>/dev/null && git commit -q -m "overnight: combined multi-model results" 2>>"$LOG" && git push -q 2>>"$LOG" ) || true
 log "=== overnight sweep done ==="

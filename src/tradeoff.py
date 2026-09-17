@@ -11,9 +11,10 @@ Usage: tradeoff.py <tag>   (e.g. qwen05 -> reads efficiency_qwen05.json, analysi
 """
 import json, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__))
+RESULTS = os.path.join(os.path.dirname(HERE), "results")
 
 def load(p):
-    try: return json.load(open(os.path.join(HERE, p)))
+    try: return json.load(open(os.path.join(RESULTS, p)))
     except Exception: return None
 
 def main():
@@ -46,7 +47,7 @@ def main():
     for r in rows:
         print(f"| {r['precision']} | {r['weight_MB']} | {r['mem_reduction_vs_fp16']} | "
               f"{r['decode_tok_s']} | {r['decode_speedup_vs_fp16']} | {r['qa_accuracy']} | {r['mem_GAP']} |")
-    json.dump({"tag": tag, "rows": rows}, open(os.path.join(HERE, f"tradeoff_{tag}.json"), "w"), indent=2)
+    json.dump({"tag": tag, "rows": rows}, open(os.path.join(RESULTS, f"tradeoff_{tag}.json"), "w"), indent=2)
 
 if __name__ == "__main__":
     main()

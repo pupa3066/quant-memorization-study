@@ -8,6 +8,8 @@ Honest: reports whatever the data says, labels missing precisions, no fabricatio
 import json, glob, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+RESULTS = os.path.join(os.path.dirname(HERE), "results")
+ROOT = os.path.dirname(HERE)
 
 def load(p):
     try:
@@ -22,7 +24,7 @@ def tag_of(path, kind):
 def main():
     fact_rows, mem_rows = [], []
 
-    for p in sorted(glob.glob(os.path.join(HERE, "analysis_popqa_*.json"))):
+    for p in sorted(glob.glob(os.path.join(RESULTS, "analysis_popqa_*.json"))):
         d = load(p)
         if not d: continue
         tag = tag_of(p, "popqa")
@@ -36,7 +38,7 @@ def main():
                           mc.get("p"),
                           ci.get("lo"), ci.get("hi")))
 
-    for p in sorted(glob.glob(os.path.join(HERE, "analysis_mem_*.json"))):
+    for p in sorted(glob.glob(os.path.join(RESULTS, "analysis_mem_*.json"))):
         d = load(p)
         if not d: continue
         tag = tag_of(p, "mem")
@@ -47,7 +49,7 @@ def main():
                          pc.get("int4", {}).get("mem_GAP")))
 
     auc_rows = []
-    for p in sorted(glob.glob(os.path.join(HERE, "separability_*.json"))):
+    for p in sorted(glob.glob(os.path.join(RESULTS, "separability_*.json"))):
         d = load(p)
         if not d: continue
         tag = os.path.basename(p).replace("separability_", "").replace(".json", "")
@@ -92,7 +94,7 @@ def main():
               "- Effect sizes + intervals matter more than any single point estimate. Underpowered rows",
               "  (tiny fp16 GAP) are suggestive only.",
               ""]
-    with open(os.path.join(HERE, "RESULTS_multimodel.md"), "w") as fh:
+    with open(os.path.join(ROOT, "RESULTS_multimodel.md"), "w") as fh:
         fh.write("\n".join(lines))
     print(f"wrote RESULTS_multimodel.md ({len(fact_rows)} factuality, {len(mem_rows)} memorization models)")
 
