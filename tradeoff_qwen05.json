@@ -1,0 +1,32 @@
+{
+  "tag": "qwen05",
+  "rows": [
+    {
+      "precision": "fp16",
+      "weight_MB": 942.3,
+      "mem_reduction_vs_fp16": 0.0,
+      "decode_tok_s": 47.7,
+      "decode_speedup_vs_fp16": 1.0,
+      "qa_accuracy": 0.29,
+      "mem_GAP": 0.025
+    },
+    {
+      "precision": "int8",
+      "weight_MB": 500.7,
+      "mem_reduction_vs_fp16": 0.4686,
+      "decode_tok_s": 58.2,
+      "decode_speedup_vs_fp16": 1.22,
+      "qa_accuracy": 0.31,
+      "mem_GAP": 0.0167
+    },
+    {
+      "precision": "int4",
+      "weight_MB": 265.2,
+      "mem_reduction_vs_fp16": 0.7186,
+      "decode_tok_s": 114.9,
+      "decode_speedup_vs_fp16": 2.409,
+      "qa_accuracy": 0.28,
+      "mem_GAP": 0.0
+    }
+  ]
+}

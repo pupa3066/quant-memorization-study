@@ -1,0 +1,41 @@
+{
+  "prompt": "Explain in one sentence why quantization reduces memory usage in neural networks.",
+  "per_precision": [
+    {
+      "precision": "fp16",
+      "model": "mlx-community/Qwen2.5-0.5B-Instruct-bf16",
+      "weight_bytes": 988097734,
+      "weight_mb": 942.3,
+      "load_s": 27.12,
+      "prefill_ms": 201.7,
+      "decode_tok_s": 47.7,
+      "peak_rss_mb": 1222.7,
+      "weight_reduction_vs_fp16": 0.0,
+      "decode_speedup_vs_fp16": 1.0
+    },
+    {
+      "precision": "int8",
+      "model": "mlx-community/Qwen2.5-0.5B-Instruct-8bit",
+      "weight_bytes": 525045902,
+      "weight_mb": 500.7,
+      "load_s": 15.85,
+      "prefill_ms": 113.9,
+      "decode_tok_s": 58.2,
+      "peak_rss_mb": 1222.7,
+      "weight_reduction_vs_fp16": 0.4686,
+      "decode_speedup_vs_fp16": 1.22
+    },
+    {
+      "precision": "int4",
+      "model": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+      "weight_bytes": 278064920,
+      "weight_mb": 265.2,
+      "load_s": 14.1,
+      "prefill_ms": 37.5,
+      "decode_tok_s": 114.9,
+      "peak_rss_mb": 1222.7,
+      "weight_reduction_vs_fp16": 0.7186,
+      "decode_speedup_vs_fp16": 2.409
+    }
+  ]
+}
