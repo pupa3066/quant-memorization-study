@@ -1,0 +1,22 @@
+name: Validate cross-hardware contributions
+
+# Runs on PRs that add/modify hardware data files, so a researcher's contribution is
+# checked for schema + provenance + attribution + comparability BEFORE merge.
+on:
+  pull_request:
+    paths:
+      - "results/hw_*.json"
+      - "src/check_contribution.py"
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate contributed hardware data
+        run: python3 src/check_contribution.py
+      # Exit 1 from the checker fails the job → blocks merge until the contribution is fixed.
