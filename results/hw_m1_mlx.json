@@ -1,0 +1,35 @@
+{
+  "hardware": "Apple M1 8GB",
+  "backend": "MLX (fused int4 kernels)",
+  "fused_int4_kernel": true,
+  "measured_by": "Purnima Pathak",
+  "harness_version": "efficiency.py (this repo)",
+  "model": "Qwen2.5-0.5B-Instruct",
+  "prompt": "Explain in one sentence why quantization reduces memory usage in neural networks.",
+  "per_precision": [
+    {
+      "precision": "fp16",
+      "weight_mb": 942.3,
+      "load_s": 27.12,
+      "prefill_ms": 201.7,
+      "decode_tok_s": 47.7,
+      "peak_mem_mb": 1222.7
+    },
+    {
+      "precision": "int8",
+      "weight_mb": 500.7,
+      "load_s": 15.85,
+      "prefill_ms": 113.9,
+      "decode_tok_s": 58.2,
+      "peak_mem_mb": 1222.7
+    },
+    {
+      "precision": "int4",
+      "weight_mb": 265.2,
+      "load_s": 14.1,
+      "prefill_ms": 37.5,
+      "decode_tok_s": 114.9,
+      "peak_mem_mb": 1222.7
+    }
+  ]
+}
