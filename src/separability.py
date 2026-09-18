@@ -39,7 +39,7 @@ def main():
         elif r["item_id"].startswith("ctrl_"):
             by_prec[prec]["neg"].append(s)
 
-    out = {"data_source": path, "metric": "AUC(memorized vs control reconstruction score)",
+    out = {"data_source": os.path.basename(path), "metric": "AUC(memorized vs control reconstruction score)",
            "interpretation": "0.5 = memorization undetectable; higher = more detectable", "per_precision": {}}
     for prec in sorted(by_prec):
         d = by_prec[prec]

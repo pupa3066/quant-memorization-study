@@ -44,7 +44,7 @@ def main():
     by = defaultdict(list)
     for r in rows: by[(r["probe"], r["precision"])].append(r)
 
-    out = {"data_source": path, "n_rows": len(rows), "per_precision": {}}
+    out = {"data_source": os.path.basename(path), "n_rows": len(rows), "per_precision": {}}
 
     precisions = sorted({r["precision"] for r in rows})
     for prec in precisions:
