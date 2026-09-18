@@ -1,5 +1,5 @@
 {
-  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_popqa_qwen3b.jsonl",
+  "data_source": "runs_popqa_qwen3b.jsonl",
   "n_rows": 108,
   "per_precision": {
     "int4": {

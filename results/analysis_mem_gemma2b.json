@@ -1,5 +1,5 @@
 {
-  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_mem_gemma2b.jsonl",
+  "data_source": "runs_mem_gemma2b.jsonl",
   "n_rows": 48,
   "per_precision": {
     "int4": {

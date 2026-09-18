@@ -1,5 +1,5 @@
 {
-  "data_source": "/Users/pupa/Projects/quant-memorization-study/runs_mem_qwen05.jsonl",
+  "data_source": "runs_mem_qwen05.jsonl",
   "n_rows": 144,
   "per_precision": {
     "fp16": {
