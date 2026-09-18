@@ -16,17 +16,19 @@ bridging on-device quantization with data-centric interpretability (Ravichander 
 README.md               ← you are here (entry point)
 RESULTS_multimodel.md   ← the canonical headline results (6 models)
 src/                    ← all code
-  harness.py            memorization + factuality probes (MLX backend)
+  harness.py            memorization + factuality probes (MLX + CUDA/Transformers backends)
   analysis.py           per-precision metrics: GAP, accuracy, McNemar, bootstrap CIs
   separability.py       memorization detectability (AUC)
-  efficiency.py         systems metrics: weight footprint, latency, throughput
+  efficiency.py         systems metrics: weight footprint, latency, throughput (MLX + CUDA)
   tradeoff.py           joins behavior × efficiency
   combine_results.py    aggregates per-model analyses → RESULTS_multimodel.md
-  overnight_sweep.sh    RAM/disk-safe multi-model sweep · launch_overnight.sh  scheduler
+  overnight_sweep.sh    RAM/disk-safe multi-model sweep (Apple) · launch_overnight.sh  scheduler
+  overnight_sweep.ps1   Windows/NVIDIA sweep (local, CUDA) · launch_overnight.ps1  scheduler
 results/                ← all run logs (runs_*.jsonl) + computed metrics (*_*.json)
 data/                   ← mem_corpus.json (memorized + control passages)
 docs/                   ← detailed writeups (see index below)
 ```
+requirements-cuda.txt   ← CUDA-backend deps (torch/transformers/bitsandbytes) for Windows+NVIDIA
 **docs/:** `DESIGN.md` (pre-registration) · `DEVLOG.md` (every bug + fix + rationale) ·
 `RESULTS.md` (single-model detail) · `EFFICIENCY.md` (systems tradeoff + kernel-support finding) ·
 `EFFICIENCY_animevlog.md` + `CROSSVALIDATION_animevlog.md` (cross-modality) · `PREPRINT.md`
@@ -46,6 +48,39 @@ python3 -m venv .venv
 # full multi-model sweep → RESULTS_multimodel.md:
 ./.venv/bin/python src/combine_results.py
 ```
+
+## Reproduce (Windows + NVIDIA GPU — local models, offline)
+Runs entirely on **local model files** with CUDA; no network at run time (`HF_HUB_OFFLINE=1`).
+INT8/INT4 use `bitsandbytes` to quantize the same fp16 weights at load. PowerShell:
+```powershell
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu121
+.\.venv\Scripts\python.exe -m pip install -r requirements-cuda.txt
+
+# 0) Pre-download weights ONCE into a local folder (do this while online), e.g.:
+#    huggingface-cli download Qwen/Qwen2.5-0.5B-Instruct --local-dir C:\models\Qwen2.5-0.5B-Instruct
+#    (set $env:HF_TOKEN first for gated repos like Llama/Gemma)
+
+# 1) Plan only (no model, no cost):
+.\.venv\Scripts\python.exe src\harness.py --dry --backend hf
+
+# 2) Real run against LOCAL folders (fp16 baseline + int4 via bitsandbytes):
+.\.venv\Scripts\python.exe src\harness.py --run --backend hf `
+  --fp16 C:\models\Qwen2.5-0.5B-Instruct `
+  --int4 C:\models\Qwen2.5-0.5B-Instruct `
+  --mem-corpus data\mem_corpus.json --out results\runs.jsonl
+.\.venv\Scripts\python.exe src\analysis.py results\runs.jsonl
+
+# 3) Efficiency (adds GPU peak memory + latency), and full sweep:
+.\.venv\Scripts\python.exe src\efficiency.py --backend hf `
+  --models fp16=C:\models\Qwen2.5-0.5B-Instruct int4=C:\models\Qwen2.5-0.5B-Instruct `
+  --out results\efficiency_qwen05.json
+.\src\overnight_sweep.ps1 -ModelsRoot C:\models   # sequential, VRAM-safe, results-only commits
+```
+Notes:
+- `--backend auto` picks CUDA when available, else MLX. The example forces `hf`.
+- For an offline factuality run, provide a local PopQA dump and pass `--popqa 50 --popqa-local data\popqa_local.jsonl`; otherwise the built-in QA set is used.
+- Size the model ladder in `src\overnight_sweep.ps1` to your VRAM.
 
 ## Current results (6 models: Qwen2.5-0.5B/1.5B/3B, Llama-3.2-1B, Phi-3.5-mini, Gemma-2-2b)
 - **Factuality: INT4 ≈ FP16, a replicated null** (McNemar p=1.0, 1.0, 0.38 on paired models).

@@ -10,4 +10,7 @@ __pycache__/
 *.npz
 models/
 
+# local dataset dumps (regenerate via datasets.load_dataset; do not redistribute)
+data/popqa_local.jsonl
+
 # keep: DESIGN.md, harness.py, analysis.py, runs.jsonl, analysis.json, DEVLOG.md, README.md

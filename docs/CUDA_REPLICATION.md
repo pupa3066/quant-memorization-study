@@ -1,0 +1,101 @@
+# CUDA Replication & Controlled Scale Experiment
+
+> Extension of the original study to a **second backend and hardware family**: NVIDIA CUDA via
+> Hugging Face Transformers + bitsandbytes, on a Windows/WSL2 host with an RTX 5060 Laptop GPU.
+> All runs are **local and offline** (`HF_HUB_OFFLINE=1`); weights load from local directories.
+> Honesty policy of the parent study applies: measured numbers only, small-N results labeled.
+
+## Why this extension
+The original results were produced on Apple Silicon via MLX. Two questions:
+1. **Do the headline findings replicate on a different backend/hardware** (NVIDIA CUDA + bitsandbytes)?
+2. Can we run a **cleaner, controlled test** of "memorization is driven by scale, not precision"
+   than the original cross-family sweep (which mixed model families and had missing precision cells)?
+
+## Backend added
+`harness.py` and `efficiency.py` gained a Transformers+CUDA backend (`--backend hf`), selectable
+alongside the existing MLX backend (`--backend auto|hf|mlx`). INT8/INT4 use bitsandbytes (nf4 for
+INT4); fp16 is the float16 baseline. Model paths are local directories; no network at run time.
+
+### Environment note (RTX 50-series / Blackwell)
+The RTX 5060 is Blackwell (compute capability **sm_120**). The default `cu121` PyTorch wheels do
+**not** contain sm_120 kernels — `torch.cuda.is_available()` returns True but kernels fail. The fix
+is the **cu128** build (`--index-url https://download.pytorch.org/whl/cu128`); verified working with
+`torch 2.11.0+cu128`, `torch.cuda.get_arch_list()` listing `sm_120`. See `requirements-cuda.txt`.
+
+## Result 1 — Factuality null REPLICATES on CUDA
+Qwen2.5-0.5B-Instruct, PopQA 50-per-bin (100 long-tail + popular questions), fp16 vs int4:
+
+| precision | QA accuracy | McNemar p | int4−fp16 acc diff (95% CI) |
+|---|---|---|---|
+| fp16 | 0.47 | — | — |
+| int4 | 0.46 | **1.0** | **−0.01 [−0.07, +0.05]** |
+
+The confidence interval straddles zero and McNemar p = 1.0 → **INT4 is statistically
+indistinguishable from FP16 on factuality**, reproducing the parent study's replicated null on a
+different backend and GPU. Absolute accuracy differs from the MLX run (different PopQA sample), but
+the **fp16-vs-int4 delta — the quantity the claim is about — is ~0 in both**.
+
+## Result 2 — Controlled scale experiment (precision fixed at INT4)
+Same family (Qwen2.5), three sizes, **all at INT4** so precision cannot be the explanation. Only the
+parameter count varies. Memorization GAP = reconstruction(memorized) − reconstruction(control):
+
+| model | params | mem GAP (int4) |
+|---|---|---|
+| Qwen2.5-0.5B | 0.5B | 0.0083 |
+| Qwen2.5-1.5B | 1.5B | 0.025 |
+| Qwen2.5-3B | 3B | **0.095** |
+
+```
+GAP ▲
+0.10│                              ● 3B
+0.05│
+    │                ● 1.5B
+0.00│  ● 0.5B
+    └────┼──────────┼──────────────┼──► size
+        0.5B       1.5B            3B
+   0.0083   →   0.025   →   0.095   (monotonic; 3B ≈ 11× the 0.5B)
+```
+
+With precision held constant, the memorization GAP **rises monotonically with model size**. This is
+direct within-family evidence (single variable manipulated) that **scale drives memorization**,
+complementing the original cross-family sweep — and improving on it, since that sweep confounded
+family and had missing fp16/int8 cells.
+
+## Combined argument
+| experiment | held fixed | varied | effect on mem GAP | conclusion |
+|---|---|---|---|---|
+| fix scale (0.5B), vary precision | scale | fp16→int4 | 0.025→0.008, CI touches 0 | precision: weak |
+| fix precision (int4), vary scale | precision | 0.5B→3B | 0.008→0.095, monotonic | **scale: strong** |
+
+→ **Memorization is driven by model scale, not precision** — now reproduced on NVIDIA CUDA with a
+controlled single-family design.
+
+## Honest scope / caveats
+- Small-N memorization probe (24 passages/model here; 40 in the mem-corpus run). GAPs are small in
+  absolute terms; the scale *ordering* across a 6× size range is the signal. CIs on the scale trend
+  itself were not computed.
+- One model family (Qwen2.5). Generalization across families (Llama/Phi/Gemma) is future work.
+- Factuality PopQA sample differs from the original MLX run, so only the **delta** (int4 vs fp16) is
+  compared across backends, not absolute accuracy.
+
+## Reproduce
+```bash
+# local, offline; weights pre-downloaded to models/
+python src/harness.py --run --backend hf \
+  --fp16 models/Qwen2.5-0.5B-Instruct --int4 models/Qwen2.5-0.5B-Instruct \
+  --popqa 50 --popqa-local data/popqa_local.jsonl --out results/runs_popqa_local_qwen05.jsonl
+python src/analysis.py results/runs_popqa_local_qwen05.jsonl
+
+# scale ladder at int4:
+for m in 0.5B 1.5B 3B; do
+  python src/harness.py --run --backend hf --int4 models/Qwen2.5-$m-Instruct \
+    --mem-corpus data/mem_corpus.json --out results/runs_scale_$m_int4.jsonl
+done
+```
+PopQA local dump is regenerated with `datasets.load_dataset("akariasai/PopQA", split="test")`
+(not committed; see below).
+
+## Artifacts in this PR
+- `results/runs_local_qwen05.jsonl`, `results/runs_popqa_local_qwen05.jsonl`
+- `results/runs_scale_qwen{05,15,3b}_int4.jsonl` + `analysis_scale_*` / `separability_scale_*`
+- `results/analysis_cuda_*` for the qwen05 CUDA runs

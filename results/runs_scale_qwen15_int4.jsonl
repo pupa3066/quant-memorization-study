@@ -1,0 +1,48 @@
+{"item_id": "mem_000", "probe": "mem", "precision": "int4", "correct": true, "score": 0.3333, "detail": "recon=2/6 (0.33) ex:' was'!' Ly'|' the'!' a'|' best'!' first'"}
+{"item_id": "mem_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' me'!' Ly'|' Ish'!' a'|' Some'!' I'"}
+{"item_id": "mem_002", "probe": "mem", "precision": "int4", "correct": true, "score": 0.1667, "detail": "recon=1/6 (0.17) ex:' is'!' Ly'|' a'!' currently'|' truth'!' well'"}
+{"item_id": "mem_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' was'!' Ly'|' bright'!' very'|' cold'!' and'"}
+{"item_id": "mem_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:' a'!' Ly'|' hole'!' math'|' in'!' with'"}
+{"item_id": "mem_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' families'!' Ly'|' all'!' the'|' every'!' only'"}
+{"item_id": "mem_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' that'!' Ly'|' gold'!' required'|' does'!' is'"}
+{"item_id": "mem_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' roads'!' Ly'|' diver'!' intersect'|' sorry'!' I'"}
+{"item_id": "mem_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' be'!' Ly'|','!' eligible'|' not'!' to'"}
+{"item_id": "mem_009", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:','!' av'|' Romans'!' I'|';'!'.'"}
+{"item_id": "mem_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' is'!' Ly'|' winter'!' time'|' made'!'.'"}
+{"item_id": "mem_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' I'!' Ly'|' shall'!\"'m\"|' turn'!' go'"}
+{"item_id": "mem_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' sky'!' Ly'|' above'!' is'|' port'!' planet'"}
+{"item_id": "mem_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' years'!' Ly'|' faced'!' sat'|' Colonel'!' with'"}
+{"item_id": "mem_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' was'!' Ly'|' burn'!' work'|' special'!' pleasure'"}
+{"item_id": "mem_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/2 (0.00) ex:'ips'!'\u5370'|' every'!' a'"}
+{"item_id": "mem_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' died'!' Ly'|' Or'!' I'|';'!'.'"}
+{"item_id": "mem_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' don'!' will'|' about'!' how'|' without'!','"}
+{"item_id": "mem_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/6 (0.00) ex:'ell'!'iz'|' cruising'!' '|' yaw'!' yacht'"}
+{"item_id": "mem_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' upon'!' Ly'|' and'!','|' mo'!' man'"}
+{"item_id": "ctrl_000", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'ubb'!'ebra'|' fro'!' is'|' calibrated'!' is'"}
+{"item_id": "ctrl_001", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' purple'!' Ly'|' negotiated'!' is'|' fern'!' stap'"}
+{"item_id": "ctrl_002", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'vent'!' av'|' invisible'!' years'|' wal'!' people'"}
+{"item_id": "ctrl_003", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' thermostat'!' piece'|' whispered'!' is'|' algebra'!' to'"}
+{"item_id": "ctrl_004", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' velvet'!' Ly'|' accountant'!' of'|' luk'!' balls'"}
+{"item_id": "ctrl_005", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:'mother'!' Ly'|' gravel'!' course'|' orchestra'!'ly'"}
+{"item_id": "ctrl_006", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' nervous'!' Ly'|' apologized'!' is'|' mushrooms'!' reporters'"}
+{"item_id": "ctrl_007", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' melanch'!' years'|' stap'!' poems'|' rehe'!' are'"}
+{"item_id": "ctrl_008", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' avalanche'!' train'|' negotiated'!' is'|' interest'!' slippery'"}
+{"item_id": "ctrl_009", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/2 (0.00) ex:' suspicious'!' Ly'|' drafted'!' is'"}
+{"item_id": "ctrl_010", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' hurricane'!' garden'|' kn'!' shelter'|' opinions'!' scarf'"}
+{"item_id": "ctrl_011", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' astonished'!' Ly'|' calcul'!' bystand'|' luk'!' new'"}
+{"item_id": "ctrl_012", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' forget'!' Ly'|' ch'!' functor'|' subpoena'!' in'"}
+{"item_id": "ctrl_013", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' left'!' Ly'|' sne'!' hand'|' union'!' is'"}
+{"item_id": "ctrl_014", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' diplomatic'!' Ly'|' pineapple'!' corps'|' folding'!' investors'"}
+{"item_id": "ctrl_015", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:'tered'!'ometer'|' coalition'!' mysterious'|' uphol'!' scientists'"}
+{"item_id": "ctrl_016", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:'irteen'!' Ly'|' sarcast'!' is'|' lam'!' comments'"}
+{"item_id": "ctrl_017", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/5 (0.00) ex:' bash'!' Ly'|' spreadsheet'!' boy'|' el'!'\\n\\n'"}
+{"item_id": "ctrl_018", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/4 (0.00) ex:' over'!' Ly'|' do'!' worker'|' lect'!' is'"}
+{"item_id": "ctrl_019", "probe": "mem", "precision": "int4", "correct": false, "score": 0.0, "detail": "recon=0/3 (0.00) ex:' amb'!' Ly'|' kettle'!' attitude'|' punct'!' other'"}
+{"item_id": "qa_high_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Paris' gen=' Paris. Q: In which year did t'"}
+{"item_id": "qa_high_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Shakespeare' gen=' William Shakespeare wrote Rom'"}
+{"item_id": "qa_low_1", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Thimphu' gen=' Thimphu. Q: In which year was'"}
+{"item_id": "qa_low_2", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1947' gen=' 1947. The transistor, a key c'"}
+{"item_id": "qa_low_3", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='Perey' gen=' Lech Zhitomirsky and Margueri'"}
+{"item_id": "qa_low_4", "probe": "qa", "precision": "int4", "correct": false, "score": 0.0, "detail": "gold='Astana' gen=' The capital of Kazakhstan is '"}
+{"item_id": "qa_low_5", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='1648' gen=' 1648. The Treaty of Westphali'"}
+{"item_id": "qa_low_6", "probe": "qa", "precision": "int4", "correct": true, "score": 1.0, "detail": "gold='74' gen=' 74. The atomic number of tung'"}

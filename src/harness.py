@@ -1,6 +1,8 @@
 """harness.py — quantization x memorization/factuality measurement harness.
 
-Implements the study in DESIGN.md. Backend-agnostic; MLX backend for Apple Silicon.
+Implements the study in DESIGN.md. Backend-agnostic; MLX backend for Apple Silicon and a
+Transformers+CUDA backend for Windows/Linux + NVIDIA (bitsandbytes int8/int4). LOCAL ONLY:
+models load from a local directory or the local HF cache; no network calls at run time.
 
 Memorization probe (Ravichander et al. arXiv:2503.12072 paradigm):
   mask high-surprisal tokens in a passage; measure whether the model reconstructs them.
@@ -90,6 +92,99 @@ def make_mlx_backend(model_path: str, precision: str) -> Backend:
             return generate(model, tokenizer, prompt=prompt, max_tokens=16, verbose=False)
     return MLXBackend()
 
+# ---------- HF Transformers backend (Windows/Linux + NVIDIA CUDA) ----------
+def make_hf_backend(model_path: str, precision: str) -> Backend:
+    """Load a model via Hugging Face Transformers on CUDA. LOCAL MODE ALWAYS: weights are
+    resolved from a local directory or the local HF cache; no network is used (HF_HUB_OFFLINE=1).
+
+    precision: 'fp16' -> float16 on CUDA; 'int8'/'int4' -> bitsandbytes quantization (nf4 for int4).
+    Requires: pip install torch (CUDA build) transformers accelerate bitsandbytes.
+    Raises cleanly if a dependency or the local model is missing (no fabrication).
+    """
+    import os
+    # Enforce fully-local, offline operation.
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
+    import torch                                              # raises ImportError if missing
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    if not torch.cuda.is_available():
+        raise RuntimeError("HF backend requested but CUDA is not available. "
+                           "Install a CUDA build of torch, or use --backend mlx on Apple Silicon.")
+
+    token = os.environ.get("HF_TOKEN") or None                # only used to read a gated LOCAL cache
+    load_kwargs = {"local_files_only": True, "token": token}
+
+    if precision == "int8":
+        from transformers import BitsAndBytesConfig
+        load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+    elif precision == "int4":
+        from transformers import BitsAndBytesConfig
+        load_kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.float16, bnb_4bit_use_double_quant=True)
+    else:  # fp16 (default full-precision-ish baseline on GPU)
+        load_kwargs["torch_dtype"] = torch.float16
+
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, token=token)
+    model = AutoModelForCausalLM.from_pretrained(model_path, device_map="cuda", **load_kwargs)
+    model.eval()
+
+    class HFBackend(Backend):
+        def encode(self, text):
+            return tokenizer.encode(text, add_special_tokens=False)
+
+        def token_surprisals_ids(self, ids):
+            """Per-position surprisal (-logp of the actual next token), aligned to ids[1:]."""
+            if len(ids) < 2:
+                return []
+            x = torch.tensor(ids, device="cuda").unsqueeze(0)
+            with torch.no_grad():
+                logits = model(x[:, :-1]).logits            # [1, len-1, vocab]
+                logp = torch.log_softmax(logits.float(), dim=-1)
+            out = []
+            for i in range(1, len(ids)):
+                out.append(-float(logp[0, i - 1, ids[i]].item()))
+            return out
+
+        def predict_next_id(self, prefix_ids):
+            """Greedy argmax next-token id given a prefix (proper reconstruction test)."""
+            x = torch.tensor(prefix_ids, device="cuda").unsqueeze(0)
+            with torch.no_grad():
+                logits = model(x).logits
+            return int(torch.argmax(logits[0, -1]).item())
+
+        def decode(self, ids):
+            return tokenizer.decode(ids)
+
+        def answer(self, question):
+            prompt = f"Answer concisely.\nQ: {question}\nA:"
+            x = tokenizer(prompt, return_tensors="pt").to("cuda")
+            with torch.no_grad():
+                gen = model.generate(**x, max_new_tokens=16, do_sample=False,
+                                     pad_token_id=tokenizer.eos_token_id)
+            new = gen[0, x["input_ids"].shape[1]:]
+            return tokenizer.decode(new, skip_special_tokens=True)
+    return HFBackend()
+
+# ---------- backend selection ----------
+def select_backend_factory(backend: str):
+    """Return a factory fn(model_path, precision) -> Backend for the chosen backend.
+    'auto' picks HF when CUDA is available, else MLX (Apple Silicon)."""
+    if backend == "hf":
+        return make_hf_backend
+    if backend == "mlx":
+        return make_mlx_backend
+    # auto
+    try:
+        import torch
+        if torch.cuda.is_available():
+            return make_hf_backend
+    except Exception:
+        pass
+    return make_mlx_backend
+
 # ---------- probes ----------
 def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9 ]", "", s.lower()).strip()
@@ -131,12 +226,14 @@ def qa_probe(backend: Backend, item: QAItem) -> Result:
                   f"gold={item.answer!r} gen={gen[:30]!r}")
 
 # ---------- runner ----------
-def run(model_paths: dict, mem_items, qa_items, out="runs.jsonl"):
-    """model_paths: {precision: model_path_or_id}. Runs every probe at every precision."""
+def run(model_paths: dict, mem_items, qa_items, out="runs.jsonl", backend="auto"):
+    """model_paths: {precision: model_path_or_id}. Runs every probe at every precision.
+    backend: 'auto' | 'hf' (CUDA) | 'mlx' (Apple Silicon)."""
+    factory = select_backend_factory(backend)
     n = 0
     with open(out, "w") as fh:
         for prec, path in model_paths.items():
-            be = make_mlx_backend(path, prec)
+            be = factory(path, prec)
             for it in mem_items:
                 r = mem_probe(be, it); r.precision = prec
                 fh.write(json.dumps(asdict(r)) + "\n"); n += 1
@@ -158,10 +255,50 @@ def load_mem_corpus(path="data/mem_corpus.json"):
         items.append(MemItem(f"ctrl_{i:03d}", t, False))
     return items
 
+def load_popqa_local(path, n_per_bin=50):
+    """Load PopQA from a LOCAL file (json list or jsonl) with fields question/obj/s_pop/possible_answers.
+    Quantile-splits by s_pop into low (long-tail) and high (popular). Fully offline."""
+    import json as _j, ast, os
+    if not path or not os.path.exists(path):
+        return []
+    rows = []
+    with open(path) as fh:
+        if path.endswith(".jsonl"):
+            rows = [_j.loads(l) for l in fh if l.strip()]
+        else:
+            d = _j.load(fh)
+            rows = d if isinstance(d, list) else d.get("rows", d.get("data", []))
+    fetched = []
+    for r in rows:
+        r = r.get("row", r)  # tolerate HF datasets-server row wrapping
+        q, a, pop = r.get("question"), r.get("obj"), r.get("s_pop")
+        if not (q and a and isinstance(pop, (int, float))):
+            continue
+        try:
+            aliases = ast.literal_eval(r.get("possible_answers") or "[]")
+        except Exception:
+            aliases = []
+        fetched.append((int(pop), q, a, aliases, r.get("id")))
+    if not fetched:
+        return []
+    fetched.sort(key=lambda x: x[0])
+    low, high = fetched[:n_per_bin], fetched[-n_per_bin:]
+    items = []
+    for pop, q, a, al, rid in low:
+        items.append(QAItem(f"popqa_low_{rid}", q, a, "low", al))
+    for pop, q, a, al, rid in high:
+        items.append(QAItem(f"popqa_high_{rid}", q, a, "high", al))
+    return items
+
 def load_popqa(n_per_bin=50, seed=0):
     """Fetch PopQA via HF datasets-server, bin by subject popularity (s_pop = Wikipedia pageviews).
+    NOTE: makes a network call. In LOCAL-ONLY mode prefer --popqa-local <path>. Kept for parity.
     Returns QAItems: bottom-quantile s_pop -> 'low' (long-tail), top-quantile -> 'high'.
-    Uses possible_answers as accepted aliases. No local dataset install needed."""
+    Uses possible_answers as accepted aliases."""
+    import os
+    if os.environ.get("HF_HUB_OFFLINE") == "1" or os.environ.get("TRANSFORMERS_OFFLINE") == "1":
+        print("[popqa] offline mode: skipping network fetch (use --popqa-local)", file=sys.stderr)
+        return []
     import json as _j, urllib.request, ast, random
     fetched = []
     # PopQA test split ~14k rows; sample a chunk deterministically, then quantile-split.
@@ -232,7 +369,10 @@ if __name__ == "__main__":
     ap.add_argument("--dry", action="store_true", help="print the plan and exit (no backend, no cost)")
     ap.add_argument("--run", action="store_true", help="execute (needs mlx-lm + models)")
     ap.add_argument("--fp16", default=None); ap.add_argument("--int8", default=None); ap.add_argument("--int4", default=None)
+    ap.add_argument("--backend", choices=("auto", "hf", "mlx"), default="auto",
+                    help="inference backend: hf=Transformers+CUDA (Windows/NVIDIA), mlx=Apple Silicon, auto=detect")
     ap.add_argument("--popqa", type=int, default=0, help="use N PopQA items PER popularity bin (real long-tail facts)")
+    ap.add_argument("--popqa-local", default=None, help="path to a LOCAL PopQA json/jsonl (offline factuality run)")
     ap.add_argument("--mem-corpus", default=None, help="path to memorization corpus JSON (scaled mem probe)")
     ap.add_argument("--out", default="runs.jsonl")
     a = ap.parse_args()
@@ -243,20 +383,22 @@ if __name__ == "__main__":
             mem = mc
             print(f"[mem-corpus] loaded {len(mem)} passages", file=sys.stderr)
     if a.popqa:
-        pq = load_popqa(n_per_bin=a.popqa)
+        pq = load_popqa_local(a.popqa_local, n_per_bin=a.popqa) if a.popqa_local else load_popqa(n_per_bin=a.popqa)
         if pq:
             qa = pq
-            print(f"[popqa] loaded {len(qa)} QA items ({a.popqa}/bin high+low)", file=sys.stderr)
+            src = a.popqa_local if a.popqa_local else "datasets-server"
+            print(f"[popqa] loaded {len(qa)} QA items ({a.popqa}/bin high+low) from {src}", file=sys.stderr)
         else:
-            print("[popqa] fetch failed; falling back to built-in QA set", file=sys.stderr)
+            print("[popqa] no PopQA loaded; falling back to built-in QA set", file=sys.stderr)
     if a.dry or not a.run:
-        plan = {"precisions": PRECISIONS, "n_mem_items": len(mem), "n_qa_items": len(qa),
+        plan = {"backend": a.backend, "precisions": PRECISIONS, "n_mem_items": len(mem), "n_qa_items": len(qa),
                 "probes": ["high-surprisal reconstruction", "closed-book QA"],
+                "mode": "LOCAL ONLY (HF_HUB_OFFLINE) — weights loaded from local dir/cache, no network",
                 "note": "No backend invoked. Provide --run with --fp16/--int8/--int4 model paths to produce REAL data."}
         print(json.dumps(plan, indent=2)); sys.exit(0)
     model_paths = {p: v for p, v in (("fp16", a.fp16), ("int8", a.int8), ("int4", a.int4)) if v}
     if not model_paths:
         print("ERROR: --run requires at least one of --fp16/--int8/--int4 <model_path>", file=sys.stderr); sys.exit(2)
     t0 = time.time()
-    n = run(model_paths, mem, qa, out=a.out)
-    print(f"wrote {n} results to {a.out} in {time.time()-t0:.1f}s across {list(model_paths)}")
+    n = run(model_paths, mem, qa, out=a.out, backend=a.backend)
+    print(f"wrote {n} results to {a.out} in {time.time()-t0:.1f}s across {list(model_paths)} [backend={a.backend}]")
