@@ -9,7 +9,7 @@ Metrics (DESIGN.md §6-7):
 Pure Python. Reads runs.jsonl; prints analysis.json. Meaningless on fabricated/empty data.
 """
 from __future__ import annotations
-import json, sys, math, random
+import json, sys, math, random, os
 from collections import defaultdict
 
 def load(p): return [json.loads(l) for l in open(p) if l.strip()]

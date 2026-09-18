@@ -11,7 +11,7 @@ finding aligned to data-centric interpretability (Ravichander et al.).
 Pure Python (no sklearn). Reads a runs_mem_*.jsonl; prints AUC per precision.
 Usage: separability.py runs_mem_<tag>.jsonl
 """
-import json, sys
+import json, sys, os
 from collections import defaultdict
 
 def load(p): return [json.loads(l) for l in open(p) if l.strip()]
