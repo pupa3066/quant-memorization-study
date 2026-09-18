@@ -95,10 +95,23 @@ def main():
         else:
             print(f"✅ PASS  {name}")
         for w in warns: print(f"     ⚠  {w}")
+
+    # Integrity check for ANY results contribution: CITATION.cff must credit >1 author/contributor
+    # when external data is added (a contributor's data must not be presented as the maintainer's own).
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    cff = os.path.join(root, "CITATION.cff")
+    if os.path.exists(cff):
+        txt = open(cff).read()
+        n_people = txt.count("given-names:")
+        print(f"\n[attribution] CITATION.cff lists {n_people} person(s).")
+        print("     ⚠  If this PR adds data measured by someone else, they MUST be added to "
+              "CITATION.cff authors/contributors before merge (integrity). Verify manually.")
+
     if total_fail:
         print(f"\n{total_fail} file(s) FAILED — do NOT merge until fixed. See docs/CROSS_HARDWARE_SCHEMA.md.")
         return 1
-    print("\nAll contributions pass schema + integrity checks — safe to merge.")
+    print("\nHardware-schema files pass. NOTE: non-hw_*.json result files are not schema-validated here; "
+          "reviewer must confirm provenance (same harness?) + attribution before merge.")
     return 0
 
 if __name__ == "__main__":

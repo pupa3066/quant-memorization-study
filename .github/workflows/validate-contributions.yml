@@ -5,8 +5,11 @@ name: Validate cross-hardware contributions
 on:
   pull_request:
     paths:
-      - "results/hw_*.json"
+      - "results/**"
       - "src/check_contribution.py"
+      - "src/efficiency.py"
+      - "src/harness.py"
+      - "CITATION.cff"
   workflow_dispatch: {}
 
 jobs:
