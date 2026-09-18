@@ -78,6 +78,22 @@ controlled single-family design.
 - Factuality PopQA sample differs from the original MLX run, so only the **delta** (int4 vs fp16) is
   compared across backends, not absolute accuracy.
 
+## Provenance (contributor-confirmed)
+The CUDA results in this document were contributed by **Akshay Upadhyay** (GitHub [@akshbhu](https://github.com/akshbhu),
+ORCID [0009-0000-1531-3198](https://orcid.org/0009-0000-1531-3198)) via PR #1 and merged into `main` at v1.1.0.
+
+On-record confirmation from the contributor
+([PR #1 comment](https://github.com/pupa3066/quant-memorization-study/pull/1#issuecomment-5730653635), 2026-09-18):
+
+> "The CUDA numbers came from the same measurement harness via the `--backend hf` path. The change is
+> purely additive: the MLX path is untouched, and both backends route through the same probes and
+> analysis code. Only the model-loading/inference backend differs, so the cross-hardware comparison
+> is apples-to-apples."
+
+This establishes that the MLX (original) and CUDA (contributed) results share identical probe and
+analysis code; only the model-loading/inference backend differs. The cross-hardware comparison is
+therefore a like-for-like replication, not a re-implementation.
+
 ## Reproduce
 ```bash
 # local, offline; weights pre-downloaded to models/

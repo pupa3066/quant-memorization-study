@@ -18,6 +18,7 @@ authors:
     orcid: "https://orcid.org/0009-0000-6441-7962"
   - given-names: Akshay
     family-names: Upadhyay
+    orcid: "https://orcid.org/0009-0000-1531-3198"
     alias: akshbhu   # GitHub; CUDA/RTX 5060 backend + cross-hardware replication (v1.1.0)
 keywords:
   - quantization
@@ -27,3 +28,8 @@ keywords:
   - large language models
 license: MIT
 repository-code: "https://github.com/pupa3066/quant-memorization-study"
+doi: "10.6084/m9.figshare.33858859"
+identifiers:
+  - type: doi
+    value: "10.6084/m9.figshare.33858859"
+    description: "Published archival record (Figshare)"
