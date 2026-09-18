@@ -7,7 +7,7 @@ and WHY the design is currently shaped the way it is. Measured facts only; pilot
 
 ## 0. Premise (why this study exists)
 Bridge between hardware-efficiency background (on-device INT4/INT8 quantization) and NLP
-data-centric interpretability (Ravichander et al., arXiv:2503.12072 — detecting memorized training
+data-centric interpretability (Ravichander et al., 2025, arXiv:2503.12072 — detecting memorized training
 data in black-box LLMs via high-surprisal token reconstruction).
 
 Question: **does quantization (FP16→INT4) measurably change what a model memorizes and how reliably

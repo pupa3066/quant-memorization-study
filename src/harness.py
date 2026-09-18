@@ -4,7 +4,7 @@ Implements the study in DESIGN.md. Backend-agnostic; MLX backend for Apple Silic
 Transformers+CUDA backend for Windows/Linux + NVIDIA (bitsandbytes int8/int4). LOCAL ONLY:
 models load from a local directory or the local HF cache; no network calls at run time.
 
-Memorization probe (Ravichander et al. arXiv:2503.12072 paradigm):
+Memorization probe (Ravichander et al., 2025, arXiv:2503.12072 paradigm):
   mask high-surprisal tokens in a passage; measure whether the model reconstructs them.
   Signal = reconstruction rate on MEMORIZED-candidate set minus CONTROL set.
 Factuality probe: closed-book QA exact/normalized match, stratified by popularity.

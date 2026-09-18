@@ -6,7 +6,7 @@ Signal: AUC (area under ROC) of using per-passage reconstruction score to classi
 memorized (positive) vs control (negative). AUC=0.5 -> no separability (memorization undetectable);
 AUC->1.0 -> strong separability (memorization clearly detectable). If AUC declines with lower
 precision, quantization is erasing the detectability of memorized data — a real interpretability
-finding aligned to data-centric interpretability (Ravichander et al.).
+finding aligned to data-centric interpretability (Ravichander et al., 2025, arXiv:2503.12072).
 
 Pure Python (no sklearn). Reads a runs_mem_*.jsonl; prints AUC per precision.
 Usage: separability.py runs_mem_<tag>.jsonl

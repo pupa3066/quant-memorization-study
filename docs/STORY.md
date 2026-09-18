@@ -14,7 +14,7 @@ independent variable, and measure model behavior as the dependent variable.**
 ## What (the actual contribution)
 1. A reproducible apparatus that measures, on real models across precisions:
    - **Memorization** via high-surprisal token reconstruction (extends black-box probing,
-     Ravichander et al. arXiv:2503.12072) — reported as a memorized-vs-control GAP and as an
+     Ravichander et al., 2025, arXiv:2503.12072) — reported as a memorized-vs-control GAP and as an
      **AUC detectability** metric (membership/contamination framing).
    - **Factuality** via popularity-stratified closed-book QA (PopQA).
 2. Real statistics from scratch (McNemar, bootstrap CIs, paired designs, AUC).

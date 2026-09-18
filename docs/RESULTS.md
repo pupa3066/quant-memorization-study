@@ -68,4 +68,4 @@ token-ID level. Signal = GAP (memorized recon − control recon). Three precisio
 ## 5. Alignment
 This is a data-centric-interpretability question: using an efficiency knob (quantization) as the
 independent variable and model behavior (memorization, factuality) as the dependent variable. It
-extends black-box memorization probing (Ravichander et al., arXiv:2503.12072) to the precision axis.
+extends black-box memorization probing (Ravichander et al., 2025, arXiv:2503.12072) to the precision axis.

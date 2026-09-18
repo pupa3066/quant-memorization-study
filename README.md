@@ -4,7 +4,7 @@
 
 Does reducing a model's numeric precision (FP16 → INT8 → INT4) change **what it memorizes** and **how
 reliably it answers factual questions**? A reproducible, honestly-scoped study across **6 models**,
-bridging on-device quantization with data-centric interpretability (Ravichander et al., arXiv:2503.12072).
+bridging on-device quantization with data-centric interpretability (Ravichander et al., 2025, arXiv:2503.12072).
 
 > **Headline (6 models):** INT4 leaves factual accuracy statistically unchanged (replicated null),
 > while memorization is driven by **model scale, not precision** — a single-model "INT4 erases

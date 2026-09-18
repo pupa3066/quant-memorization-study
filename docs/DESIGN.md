@@ -5,7 +5,7 @@
 Interpretability (how training data shapes behavior) + reliability (why factuality fails).
 
 ## 1. Motivation & prior result
-Ravichander et al. (arXiv:2503.12072, ACL Outstanding Paper) detect training-data memorization in
+Ravichander et al., 2025 (arXiv:2503.12072, ACL Outstanding Paper) detect training-data memorization in
 black-box LLMs via **information-guided probing**: mask high-surprisal tokens in a passage and test
 whether the model can reconstruct them. High reconstruction ⇒ the passage is memorized.
 

@@ -77,7 +77,7 @@ scale (0.5B 0.55 → 3B 0.625). **Scale drives memorization; INT4's effect is sm
   memorized−control GAP rather than absolute rates.
 
 ## 5. Related work
-Black-box memorization probing (Ravichander et al., 2025). Quantization tradeoff literature focuses on
+Black-box memorization probing (Ravichander et al., 2025, arXiv:2503.12072). Quantization tradeoff literature focuses on
 accuracy/perplexity; we add memorization/factuality as dependent variables. A cross-modality check
 (diffusion INT4, cosine >0.997 image fidelity) corroborates the "INT4 preserves task output" side.
 

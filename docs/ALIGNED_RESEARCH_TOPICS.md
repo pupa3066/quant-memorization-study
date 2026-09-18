@@ -11,7 +11,7 @@
   precision (FP16→INT8→INT4), while control text stays at floor.
 - **Method:** the running harness — token-ID greedy reconstruction, memorized-vs-control GAP,
   paired CI across precisions, multi-model sweep. REAL data in progress.
-- **Why real:** directly extends Ravichander et al. (arXiv:2503.12072) black-box probing to the
+- **Why real:** directly extends Ravichander et al., 2025 (arXiv:2503.12072) black-box probing to the
   precision axis; we already produce measured GAPs.
 - **Next depth:** larger models (stronger FP16 baseline), top-k reconstruction criterion, per-genre
   memorization (poetry vs prose vs code), and whether int8 preserves memorization that int4 erases.
