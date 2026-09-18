@@ -22,6 +22,7 @@ src/                    ← all code
   efficiency.py         systems metrics: weight footprint, latency, throughput (MLX + CUDA)
   tradeoff.py           joins behavior × efficiency
   combine_results.py    aggregates per-model analyses → RESULTS_multimodel.md
+  plot_cuda_replication.py  charts: McNemar 2×2, CUDA-vs-MLX cells/CIs, scale → docs/cuda_replication.png
   overnight_sweep.sh    RAM/disk-safe multi-model sweep (Apple) · launch_overnight.sh  scheduler
   overnight_sweep.ps1   Windows/NVIDIA sweep (local, CUDA) · launch_overnight.ps1  scheduler
 results/                ← all run logs (runs_*.jsonl) + computed metrics (*_*.json)
@@ -84,8 +85,11 @@ Notes:
 
 ## Current results (6 models: Qwen2.5-0.5B/1.5B/3B, Llama-3.2-1B, Phi-3.5-mini, Gemma-2-2b)
 - **Factuality: INT4 ≈ FP16, a replicated null** (McNemar p=1.0, 1.0, 0.38 on paired models).
+  **Reproduced on NVIDIA CUDA (RTX 5060): p=1.0, CI [−0.07, +0.05]** — see
+  `docs/CUDA_REPLICATION.md` and `docs/cuda_replication.png`.
 - **Memorization: dominated by model scale, not precision** — the single-0.5B "int4 erases
-  memorization" story did NOT replicate. Honest, mixed result.
+  memorization" story did NOT replicate. Honest, mixed result. **Controlled single-family test on
+  CUDA (Qwen2.5 at fixed INT4): GAP 0.008 → 0.025 → 0.095 for 0.5B → 1.5B → 3B.**
 - **Efficiency (systems):** INT4 = ~72% smaller weights + 2.4× decode on MLX; but int4 latency
   *depends on fused-kernel support* (MLX fused → faster; PyTorch-MPS → 6.3× slower per-op). See
   `docs/EFFICIENCY.md`.
