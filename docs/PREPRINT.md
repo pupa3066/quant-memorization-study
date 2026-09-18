@@ -90,3 +90,37 @@ accuracy/perplexity; we add memorization/factuality as dependent variables. A cr
 ## 7. Reproducibility
 Pre-registered design, RAM/disk-safe multi-model sweep, from-scratch statistics (McNemar, bootstrap
 CIs, AUC). All run logs and per-model analyses are in the repository. DOI: 10.6084/m9.figshare.33858859.
+
+## 8. Provenance — how this research topic arose
+This study did not begin as a research question; it began as an **engineering constraint** in a
+companion project (AnimeVlog), and the reframe from engineering to science is the reason it exists.
+
+- **Origin (engineering):** AnimeVlog generates personalized anime fully on-device on consumer Apple
+  Silicon, including 8GB machines. SDXL's UNet (2.57B params, ~4897MB fp16) does not fit alongside the
+  OS on 8GB, forcing INT4 quantization. A pure-PyTorch per-group INT4 quantizer for MPS was built and
+  measured: fp16 4897MB → int4 ~1759MB (3.8× at group_size=128), cosine 0.99778–0.99799, with a
+  layer-sensitivity result (skip first/last → 0.99997) and NF4 measured *worse* than uniform
+  (per-group calibration already handled the distribution). [MEASURED 2026-08-13]
+- **The honest pivot:** AnimeVlog's own assessment concluded this INT4 work was *not* a publishable
+  research contribution ("per-group asymmetric quantization is textbook; an engineering workaround").
+  That honest self-assessment redirected the effort: the quantization *engineering* measured only
+  **output fidelity** (cosine of images/weights). The unstudied question was what the same efficiency
+  knob does to **model behavior** — memorization and factual recall. That question is this study:
+  precision as the independent variable, behavior as the dependent variable.
+- **Cross-modality relationship (recorded, measured):** AnimeVlog INT4 [vision: cosine >0.997 image
+  fidelity] **SUPPORTS** this study [text: INT4 factuality null] on the claim "INT4 preserves the
+  intended task output across modalities"; **NEUTRAL** on memorization (image fidelity ≠ verbatim
+  recall). The vision result gives this text study cross-modality external validity. Methodologically,
+  AnimeVlog's group-size / layer-sensitivity ablation design is transferable to probing how
+  quantization granularity affects memorization (a future axis, §6).
+- **Shared principle:** both lines, and the companion Consistent Context Kit, operationalize one
+  measured thesis — *spend the expensive resource only where it changes behavior* (bits here; context
+  in the kit). The kit's `precision_advisor.py` consumes this study's real `analysis_*.json`.
+
+## 9. Contributions & cross-hardware provenance
+- Original study (Apple Silicon / MLX): Purnima Pathak (ORCID 0009-0000-6441-7962).
+- NVIDIA CUDA / RTX 5060 cross-hardware replication (v1.1.0): Akshay Upadhyay
+  (ORCID 0009-0000-1531-3198), contributed via PR #1 and merged after author + provenance
+  confirmation. The CUDA numbers came from the same measurement harness (`--backend hf`), additive to
+  the MLX path (same probes and analysis code); see `docs/CUDA_REPLICATION.md`. The factuality null
+  and the scale-drives-memorization finding both replicate on the second hardware family.
