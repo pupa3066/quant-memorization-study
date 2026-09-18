@@ -1,4 +1,4 @@
-# Quantization × Memorization & Factuality — Pre-Registered Study Design
+# The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models — Pre-Registered Study Design
 
 **Status:** design v1 (2026-09-15). Pre-registration-style; results filled after real runs.
 **Intended audience / alignment:** Abhilasha Ravichander (QUEST NLP, MPI-SWS) — Data-Centric

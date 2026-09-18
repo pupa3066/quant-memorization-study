@@ -1,4 +1,4 @@
-# Multi-Model Results — Quantization × Memorization/Factuality
+# Multi-Model Results — The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models
 
 > Auto-generated from per-model analysis_*.json by combine_results.py.
 > All numbers MEASURED on real models. Missing cells = precision variant not run.

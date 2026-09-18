@@ -1,4 +1,4 @@
-# DEVLOG — Quantization × Memorization/Factuality
+# DEVLOG — The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models
 
 A running, honest engineering + science log. Records what broke, what caused it, what the fix was,
 and WHY the design is currently shaped the way it is. Measured facts only; pilot numbers are labeled.

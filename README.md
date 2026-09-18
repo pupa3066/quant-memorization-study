@@ -1,4 +1,4 @@
-# Quantization × Memorization & Factuality
+# The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models: A Multi-Model Study
 
 [![DOI](https://img.shields.io/badge/DOI-10.6084%2Fm9.figshare.33858859-blue)](https://doi.org/10.6084/m9.figshare.33858859)
 

@@ -1,7 +1,7 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
-  "name": "Quantization × Memorization & Factuality",
+  "name": "The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models: A Multi-Model Study",
   "identifier": "https://doi.org/10.6084/m9.figshare.33858859",
   "description": "A multi-model (6-model) study measuring whether INT4/INT8 quantization changes what a language model memorizes and how reliably it recalls facts. INT4 leaves factual accuracy statistically unchanged (replicated null); memorization is driven by model scale, not precision. Includes cross-modality external validation (diffusion image fidelity + LLM factuality).",
   "codeRepository": "https://github.com/pupa3066/quant-memorization-study",

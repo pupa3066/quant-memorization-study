@@ -1,4 +1,4 @@
-# RESULTS — Quantization × Memorization/Factuality
+# RESULTS — The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models
 
 > All numbers below are MEASURED on real models (MLX Qwen2.5-0.5B-Instruct at bf16/int8/int4).
 > Data files: `runs_popqa.jsonl` (factuality), `runs_mem.jsonl` (memorization).

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Quantization × Memorization & Factuality"
+title: "The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models: A Multi-Model Study"
 abstract: >-
   A multi-model study measuring whether INT4/INT8 quantization changes what a
   language model memorizes and how reliably it recalls facts. Across six models,
