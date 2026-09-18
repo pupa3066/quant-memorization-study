@@ -16,6 +16,9 @@ authors:
   - given-names: Purnima
     family-names: Pathak
     orcid: "https://orcid.org/0009-0000-6441-7962"
+  - given-names: Akshay
+    family-names: Upadhyay
+    alias: akshbhu   # GitHub; CUDA/RTX 5060 backend + cross-hardware replication (v1.1.0)
 keywords:
   - quantization
   - memorization
