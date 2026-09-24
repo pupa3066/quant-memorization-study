@@ -102,9 +102,12 @@ def make_hf_backend(model_path: str, precision: str) -> Backend:
     Raises cleanly if a dependency or the local model is missing (no fabrication).
     """
     import os
-    # Enforce fully-local, offline operation.
-    os.environ.setdefault("HF_HUB_OFFLINE", "1")
-    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+    # Offline by default (safe for local cached runs); the 7B/Kaggle runner sets CCK_ALLOW_DOWNLOAD=1
+    # to permit a one-time model download. When downloading, do NOT force offline.
+    allow_dl = os.environ.get("CCK_ALLOW_DOWNLOAD") == "1"
+    if not allow_dl:
+        os.environ.setdefault("HF_HUB_OFFLINE", "1")
+        os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
 
     import torch                                              # raises ImportError if missing
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -114,7 +117,8 @@ def make_hf_backend(model_path: str, precision: str) -> Backend:
                            "Install a CUDA build of torch, or use --backend mlx on Apple Silicon.")
 
     token = os.environ.get("HF_TOKEN") or None                # only used to read a gated LOCAL cache
-    load_kwargs = {"local_files_only": True, "token": token}
+    local_only = not allow_dl                                 # allow network fetch when downloading
+    load_kwargs = {"local_files_only": local_only, "token": token}
 
     if precision == "int8":
         from transformers import BitsAndBytesConfig
@@ -127,7 +131,7 @@ def make_hf_backend(model_path: str, precision: str) -> Backend:
     else:  # fp16 (default full-precision-ish baseline on GPU)
         load_kwargs["torch_dtype"] = torch.float16
 
-    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, token=token)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=local_only, token=token)
     model = AutoModelForCausalLM.from_pretrained(model_path, device_map="cuda", **load_kwargs)
     model.eval()
 

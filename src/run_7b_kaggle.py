@@ -30,6 +30,7 @@ import os, sys, gc, json, argparse, time
 # allow the one-time download on Kaggle/Colab (harness defaults to offline; we need the model)
 os.environ["HF_HUB_OFFLINE"] = "0"
 os.environ["TRANSFORMERS_OFFLINE"] = "0"
+os.environ["CCK_ALLOW_DOWNLOAD"] = "1"   # tell harness.make_hf_backend to permit network fetch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
