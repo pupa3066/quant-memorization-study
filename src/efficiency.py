@@ -90,14 +90,17 @@ def measure_one_mlx(precision: str, model_path: str) -> dict:
 
 def measure_one_hf(precision: str, model_path: str) -> dict:
     """CUDA path: Transformers + bitsandbytes, LOCAL ONLY. Reports GPU memory + latency."""
-    os.environ.setdefault("HF_HUB_OFFLINE", "1")
-    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+    allow_dl = os.environ.get("CCK_ALLOW_DOWNLOAD") == "1"
+    if not allow_dl:
+        os.environ.setdefault("HF_HUB_OFFLINE", "1")
+        os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA not available for HF efficiency measurement")
     token = os.environ.get("HF_TOKEN") or None
-    kwargs = {"local_files_only": True, "token": token, "device_map": "cuda"}
+    local_only = not allow_dl
+    kwargs = {"local_files_only": local_only, "token": token, "device_map": "cuda"}
     if precision == "int8":
         from transformers import BitsAndBytesConfig
         kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
@@ -110,7 +113,7 @@ def measure_one_hf(precision: str, model_path: str) -> dict:
         kwargs["torch_dtype"] = torch.float16
 
     torch.cuda.reset_peak_memory_stats()
-    tok = AutoTokenizer.from_pretrained(model_path, local_files_only=True, token=token)
+    tok = AutoTokenizer.from_pretrained(model_path, local_files_only=local_only, token=token)
     t0 = time.perf_counter()
     model = AutoModelForCausalLM.from_pretrained(model_path, **kwargs); model.eval()
     torch.cuda.synchronize()
