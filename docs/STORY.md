@@ -20,7 +20,7 @@ independent variable, and measure model behavior as the dependent variable.**
 2. Real statistics from scratch (McNemar, bootstrap CIs, paired designs, AUC).
 3. A multi-model sweep (multiple architectures/sizes) so findings aren't single-model artifacts.
 
-## The requirement it answers (for a QUEST NLP-aligned reviewer)
+## The requirement it answers (for a reliability-focused reviewer)
 "Develop a scientific understanding of how AI models work, to improve reliability." This work asks a
 precise, measurable sub-question of that: *which behaviors survive compression and which don't?* It
 produces falsifiable, honestly-scoped answers (including a null and honestly-labeled underpowered

@@ -1,8 +1,8 @@
 # The Effect of Low-Bit Quantization on Memorization and Factual Recall in Language Models — Pre-Registered Study Design
 
 **Status:** design v1 (2026-09-15). Pre-registration-style; results filled after real runs.
-**Intended audience / alignment:** Abhilasha Ravichander (QUEST NLP, MPI-SWS) — Data-Centric
-Interpretability (how training data shapes behavior) + reliability (why factuality fails).
+**Research area / alignment:** Data-Centric Interpretability (how training data shapes behavior) +
+reliability (why factuality fails).
 
 ## 1. Motivation & prior result
 Ravichander et al., 2025 (arXiv:2503.12072, ACL Outstanding Paper) detect training-data memorization in
@@ -56,9 +56,10 @@ same decoding temp=0, same seed). This isolates precision as the cause.
 - **Decoding nondeterminism:** temp=0, fixed seed, single sample; note residual nondeterminism.
 
 ## 9. Novelty / honest positioning
-Not new: quantization; memorization probing (hers). New here: **measuring memorization & factuality
-as a function of the precision knob**, using her probing paradigm, with my on-device quantization
-tooling as the experimental lever. Framed as a data-centric-interpretability question, not a hardware one.
+Not new: quantization; black-box memorization probing (Ravichander et al., 2025, arXiv:2503.12072).
+New here: **measuring memorization & factuality as a function of the precision knob**, using that
+probing paradigm, with my on-device quantization tooling as the experimental lever. Framed as a
+data-centric-interpretability question, not a hardware one.
 
 ## 10. Reproducibility
 Harness (`harness/`) logs full config, model revision, precision, seeds, per-item results to JSONL.
