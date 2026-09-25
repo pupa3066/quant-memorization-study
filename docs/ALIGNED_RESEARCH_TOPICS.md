@@ -1,12 +1,13 @@
-# Aligned Research Topics — QUEST NLP (Abhilasha Ravichander, MPI-SWS)
+# Aligned Research Topics: Data-Centric Interpretability & Reliability
 
-> Grounded in her three stated pillars and in apparatus we already have running. Each topic lists:
-> the pillar it serves, the concrete hypothesis, the method (real, runnable), and why it is NOT a
-> hypothetical bridge. Priority = how directly it extends her published work + our existing harness.
+> Grounded in three research pillars (data-centric interpretability, reliable information synthesis,
+> AI creativity) and in apparatus already running. Each topic lists: the pillar it serves, the
+> concrete hypothesis, the method (real, runnable), and why it is NOT a hypothetical bridge.
+> Priority = how directly it extends published work in the area + the existing harness.
 
 ## Pillar 1 — Data-Centric Interpretability
 
-### T1. Does quantization change what a model memorizes? (ACTIVE — extends her ACL work)
+### T1. Does quantization change what a model memorizes? (ACTIVE; extends prior black-box probing work)
 - **Hypothesis:** reconstruction of high-surprisal tokens in likely-memorized text declines with
   precision (FP16→INT8→INT4), while control text stays at floor.
 - **Method:** the running harness — token-ID greedy reconstruction, memorized-vs-control GAP,
@@ -45,9 +46,9 @@
 - **Hypothesis:** quantization narrows output distribution (lower diversity), measurable via distinct-n
   / self-BLEU on open-ended generation.
 - **Method:** generate open-ended completions at FP16 vs INT4, measure lexical/semantic diversity.
-- **Why real but secondary:** creativity is her pillar 2, and "does compression flatten a model toward
-  its training-distribution mode?" is a genuine measurable question — but it's the least developed of
-  our apparatus, so flag it as exploratory, not a headline.
+- **Why real but secondary:** creativity is the third pillar, and "does compression flatten a model
+  toward its training-distribution mode?" is a genuine measurable question, but it's the least
+  developed of the apparatus, so flag it as exploratory, not a headline.
 
 ## Cross-thesis map (why these reinforce each other — MEASURED, not hypothetical)
 - T1/T2 (memorization erosion under precision) + T4 (agent synthesis under precision) share ONE
@@ -58,5 +59,5 @@
   changes behavior" thesis on two axes — already operationalized by precision_advisor.py consuming
   the study's real analysis JSON.
 
-## What to pitch Abhilasha FIRST
+## Strongest topics to lead with
 T1 (have data) + T4 (unites both projects) → strongest, most defensible, least hand-wavy.
